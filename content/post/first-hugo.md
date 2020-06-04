@@ -9,7 +9,7 @@ draft: true
 如果没有SSH Key，则需要先生成一下
 
 ```git
-ssh-keygen -t rsa -C "xiangshuo1992@gmail.com"
+ssh-keygen -t rsa -C "1490284462@qq.com"
 ```
 
 ### 三、获取SSH Key
@@ -31,4 +31,5 @@ GitHub点击用户头像，选择setting
 
 ssh -T git@github.com
 //运行结果出现类似如下
-Hi xiangshuo1992! You've successfully authenticated, but GitHub does not provide shell access.
+Hi danny1144/danny1144.github.io! You've successfully authenticated, but GitHub does not provide shell access.
+ 
