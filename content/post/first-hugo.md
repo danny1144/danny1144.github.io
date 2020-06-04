@@ -24,3 +24,11 @@ cat id_rsa.pub
 GitHub点击用户头像，选择setting
 
 新建一个SSH Key
+
+### 五、验证和修改
+
+测试是否成功配置SSH Key
+
+ssh -T git@github.com
+//运行结果出现类似如下
+Hi xiangshuo1992! You've successfully authenticated, but GitHub does not provide shell access.
