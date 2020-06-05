@@ -17,7 +17,7 @@
       <pubDate>Fri, 05 Jun 2020 22:35:45 +0800</pubDate>
       
       <guid>http://danny1144.github.io/post/kubernetes_problem/</guid>
-      <description>K8S故障排除方法 1.查看pods哪些是有问题的，Runningg正常，其他异常； /opt/kubernetes/bin/kubectl get pods --all-namespaces -owide NAMESPACE NAME READY STATUS RESTARTS AGE IP NODE NOMINATED NODE default nginx-dbddb74b8-d78cd 1/1 Running 0 17m 172.17.90.3 192.168.18.148 2.查看异常</description>
+      <description>K8S故障排除方法 1.查看pods哪些是有问题的，Runningg正常，其他异常； 1 2 3 4 5 6 /opt/kubernetes/bin/kubectl get pods --all-namespaces -owide NAMESPACE NAME READY STATUS RESTARTS AGE IP NODE NOMINATED NODE default nginx-dbddb74b8-d78cd 1/1 Running 0 17m 172.17.90.3 192.168.18.148</description>
     </item>
     
     <item>
