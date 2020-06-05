@@ -6,7 +6,7 @@
     <description>Recent content on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 05 Jun 2020 15:31:54 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2020 22:35:45 +0800</lastBuildDate>
     
 	<atom:link href="http://danny1144.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -20,6 +20,15 @@
       <description>Hugo is a static site engine written in Go.
 It makes use of a variety of open source projects including:
  Cobra Viper J Walter Weatherman Cast  Learn more and contribute on GitHub.</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes_problem</title>
+      <link>http://danny1144.github.io/post/kubernetes_problem/</link>
+      <pubDate>Fri, 05 Jun 2020 22:35:45 +0800</pubDate>
+      
+      <guid>http://danny1144.github.io/post/kubernetes_problem/</guid>
+      <description>K8S故障排除方法 1.查看pods哪些是有问题的，Runningg正常，其他异常； /opt/kubernetes/bin/kubectl get pods --all-namespaces -owide NAMESPACE NAME READY STATUS RESTARTS AGE IP NODE NOMINATED NODE default nginx-dbddb74b8-d78cd 1/1 Running 0 17m 172.17.90.3 192.168.18.148 2.查看异常</description>
     </item>
     
     <item>
