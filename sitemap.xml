@@ -11,34 +11,62 @@
   
   <url>
     <loc>http://danny1144.github.io/categories/</loc>
-    <lastmod>2020-06-05T14:54:09+08:00</lastmod>
+    <lastmod>2020-06-05T15:31:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://danny1144.github.io/tags/docker/</loc>
+    <lastmod>2020-06-05T15:31:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://danny1144.github.io/post/docker-desktop-kubernetes/</loc>
+    <lastmod>2020-06-05T15:31:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://danny1144.github.io/</loc>
-    <lastmod>2020-06-05T14:54:09+08:00</lastmod>
+    <lastmod>2020-06-05T15:31:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://danny1144.github.io/categories/front/</loc>
-    <lastmod>2020-06-05T14:54:09+08:00</lastmod>
+    <loc>http://danny1144.github.io/tags/kubernetes/</loc>
+    <lastmod>2020-06-05T15:31:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://danny1144.github.io/post/</loc>
-    <lastmod>2020-06-05T14:54:09+08:00</lastmod>
+    <lastmod>2020-06-05T15:31:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://danny1144.github.io/categories/server/</loc>
+    <lastmod>2020-06-05T15:31:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://danny1144.github.io/tags/</loc>
+    <lastmod>2020-06-05T15:31:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://danny1144.github.io/categories/front/</loc>
     <lastmod>2020-06-05T14:54:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

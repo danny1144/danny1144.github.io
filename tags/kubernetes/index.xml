@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kubernetes on Even - A super concise theme for Hugo</title>
+    <link>http://danny1144.github.io/tags/kubernetes/</link>
+    <description>Recent content in kubernetes on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 05 Jun 2020 15:31:54 +0800</lastBuildDate>
+    
+	<atom:link href="http://danny1144.github.io/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker Desktop Kubernetes</title>
+      <link>http://danny1144.github.io/post/docker-desktop-kubernetes/</link>
+      <pubDate>Fri, 05 Jun 2020 15:31:54 +0800</pubDate>
+      
+      <guid>http://danny1144.github.io/post/docker-desktop-kubernetes/</guid>
+      <description>windows10 docker-desktop安装kuberetes:v1.15.5 对应版本 首先创建一个镜像对应表文件 images.properties： 1</description>
+    </item>
+    
+  </channel>
+</rss>
