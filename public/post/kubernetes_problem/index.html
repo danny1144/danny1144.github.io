@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Docker Desktop Kubernetes - Even - A super concise theme for Hugo</title>
+  <title>Kubernetes_problem - Even - A super concise theme for Hugo</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="dannyz" /><meta name="description" content="windows10 docker-desktop安装kuberetes" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="dannyz" /><meta name="description" content="kubernetes 故障检查策略" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.72.0 with theme even" />
 
 
-<link rel="canonical" href="http://danny1144.github.io/post/docker-desktop-kubernetes/" />
+<link rel="canonical" href="http://danny1144.github.io/post/kubernetes_problem/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,23 +39,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Docker Desktop Kubernetes" />
-<meta property="og:description" content="windows10 docker-desktop安装kuberetes" />
+<meta property="og:title" content="Kubernetes_problem" />
+<meta property="og:description" content="kubernetes 故障检查策略" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://danny1144.github.io/post/docker-desktop-kubernetes/" />
-<meta property="article:published_time" content="2020-06-05T15:31:54+08:00" />
-<meta property="article:modified_time" content="2020-06-05T15:31:54+08:00" />
-<meta itemprop="name" content="Docker Desktop Kubernetes">
-<meta itemprop="description" content="windows10 docker-desktop安装kuberetes">
-<meta itemprop="datePublished" content="2020-06-05T15:31:54&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-05T15:31:54&#43;08:00" />
-<meta itemprop="wordCount" content="296">
+<meta property="og:url" content="http://danny1144.github.io/post/kubernetes_problem/" />
+<meta property="article:published_time" content="2020-06-05T22:35:45+08:00" />
+<meta property="article:modified_time" content="2020-06-05T22:35:45+08:00" />
+<meta itemprop="name" content="Kubernetes_problem">
+<meta itemprop="description" content="kubernetes 故障检查策略">
+<meta itemprop="datePublished" content="2020-06-05T22:35:45&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-05T22:35:45&#43;08:00" />
+<meta itemprop="wordCount" content="638">
 
 
 
 <meta itemprop="keywords" content="docker,kubernetes," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Docker Desktop Kubernetes"/>
-<meta name="twitter:description" content="windows10 docker-desktop安装kuberetes"/>
+<meta name="twitter:title" content="Kubernetes_problem"/>
+<meta name="twitter:description" content="kubernetes 故障检查策略"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -122,7 +122,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Docker Desktop Kubernetes</h1>
+      <h1 class="post-title">Kubernetes_problem</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2020-06-05 </span>
@@ -138,20 +138,23 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#windows10-docker-desktop安装kuberetesv1155">windows10 docker-desktop安装kuberetes:v1.15.5</a></li>
+    <li><a href="#k8s故障排除方法">K8S故障排除方法</a>
+      <ul>
+        <li><a href="#1查看pods哪些是有问题的runningg正常其他异常">1.查看pods哪些是有问题的，Runningg正常，其他异常；</a></li>
+        <li><a href="#2查看异常pod的详情">2.查看异常pod的详情</a></li>
+        <li><a href="#3查看异常服务的详情">3.查看异常服务的详情</a></li>
+        <li><a href="#4查看集群node的状态">4.查看集群node的状态</a></li>
+        <li><a href="#5查看node的详情">5.查看node的详情</a></li>
+        <li><a href="#6查看集群组件状态">6.查看集群组件状态</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="windows10-docker-desktop安装kuberetesv1155">windows10 docker-desktop安装kuberetes:v1.15.5</h2>
-<ul>
-<li>对应版本</li>
-</ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/10040407-54bf69a36bf6c0b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image-20200306124600307"></p>
-<ul>
-<li>
-<p>首先创建一个镜像对应表文件 images.properties：</p>
+      <h2 id="k8s故障排除方法">K8S故障排除方法</h2>
+<h3 id="1查看pods哪些是有问题的runningg正常其他异常">1.查看pods哪些是有问题的，Runningg正常，其他异常；</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -160,25 +163,38 @@
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">k8s.gcr.io/pause:3.1=registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1
-k8s.gcr.io/kube-controller-manager:v1.15.5=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.15.5
-k8s.gcr.io/kube-scheduler:v1.15.5=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.15.5
-k8s.gcr.io/kube-proxy:v1.15.5=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.15.5
-k8s.gcr.io/kube-apiserver:v1.15.5=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.15.5
-k8s.gcr.io/etcd:3.3.10=registry.cn-hangzhou.aliyuncs.com/google_containers/etcd:3.3.10
-k8s.gcr.io/coredns:1.3.1=registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:1.3.1
-k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1=registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.10.1
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">/opt/kubernetes/bin/kubectl get pods --all-namespaces -owide
+
+
+NAMESPACE NAME READY STATUS RESTARTS AGE IP NODE NOMINATED NODE
+
+default nginx-dbddb74b8-d78cd 1/1 Running 0 17m 172.17.90.3 192.168.18.148 &lt;none&gt;
 </code></pre></td></tr></table>
 </div>
-</div></li>
-<li>
-<p>然后在相同目录下，创建脚本 docker-images-k8s.ps1：</p>
-</li>
-</ul>
+</div><h3 id="2查看异常pod的详情">2.查看异常pod的详情</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">/opt/kubernetes/bin/kubectl describe pods nginx-dbddb74b8-2hthr
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>我这边异常信息如下：</strong></p>
+<p>Warning FailedScheduling 32m (x2 over 32m) default-scheduler 0/2 nodes are available: 2 node(s) had taints that the pod didn&rsquo;t tolerate.</p>
+<p>解决办法：参考：https://github.com/kubernetes-sigs/kubespray/issues/2798</p>
+<h3 id="3查看异常服务的详情">3.查看异常服务的详情</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">/opt/kubernetes/bin/kubectl describe services nginx
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="4查看集群node的状态">4.查看集群node的状态</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -187,59 +203,18 @@ k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1=registry.cn-hangzhou.aliyuncs.com/
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">foreach($line in Get-Content .\images.properties) {
-    $data = $line.Split(&#39;=&#39;)
-    $key = $data[0];
-    $value = $data[1];
-    Write-Output &#34;$key=$value&#34;
-    docker pull ${value}
-    docker tag ${value} ${key}
-    docker rmi ${value}
-}
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>
-<p>执行上面的脚本</p>
-</li>
-<li>
-<p>启用kubeernetes功能</p>
-</li>
-</ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/10040407-2d1aae0d7ca150ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image-20200306122944441"></p>
-<ul>
-<li>启用dashboard</li>
-</ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">/opt/kubernetes/bin/kubectl get nodes -o wide
+
+NAME STATUS ROLES AGE VERSION INTERNAL-IP EXTERNAL-IP OS-IMAGE KERNEL-VERSION CONTAINER-RUNTIME
+
+192.168.18.147 NotReady &lt;none&gt; 62m v1.12.1 192.168.18.147 &lt;none&gt; CentOS Linux 7 (Core) 3.10.0-862.el7.x86_64 docker://18.9.5
 
 </code></pre></td></tr></table>
 </div>
-</div><p>部署成功后，启动 Kubernetes API Server 访问代理。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="err">$</span> <span class="n">kubectl</span> <span class="n">proxy</span>
-<span class="n">Starting</span> <span class="n">to</span> <span class="n">serve</span> <span class="k">on</span> <span class="m">127.0</span><span class="p">.</span><span class="m">0.1</span><span class="p">:</span><span class="m">8001</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>这时候，打开浏览器，通过如下 URL 访问 Kubernetes Dashboard：
-http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/overview?namespace=default</p>
-<p>通过令牌访问</p>
-<p>通过以下脚本，配置访问控制台所需的令牌。</p>
+</div><p>我这边是NotReady状态，经排查发现， node18.147上面的kubelet kube-proxy挂掉了，服务启来后就可以了</p>
+<h3 id="5查看node的详情">5.查看node的详情</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -247,10 +222,103 @@ http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-da
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>kubectl -n kube-system describe secret default<span class="p">|</span> awk <span class="s1">&#39;$1==&#34;token:&#34;{print $2}&#39;</span><span class="k">)</span>
-kubectl config set-credentials docker-desktop --token<span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&#34;</span>
-<span class="nb">echo</span> <span class="nv">$TOKEN</span>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">/opt/kubernetes/bin/kubectl describe node 192.168.18.147
+
+Warning FailedScheduling 32m (x2 over 32m) default-scheduler 0/2 nodes are available: 2 node(s) had taints that the pod didn&#39;t tolerate.
 </code></pre></td></tr></table>
+</div>
+</div><p>这个的具体解决方法：</p>
+<p>我这边查看pod详情，Taints显示如下：</p>
+<p>Taints: node.kubernetes.io/unreachable:NoSchedule</p>
+<p>执下如下命令后即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@master tmp]# /opt/kubernetes/bin/kubectl taint nodes --all node.kubernetes.io/unreachable-
+
+node/192.168.18.147 untainted
+
+node/192.168.18.148 untainted
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="6查看集群组件状态">6.查看集群组件状态</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">/opt/kubernetes/bin/kubectl get cs
+
+NAME STATUS MESSAGE ERROR
+
+scheduler Healthy ok
+
+controller-manager Healthy ok
+
+etcd-1 Healthy {&#34;health&#34;:&#34;true&#34;}
+
+etcd-2 Healthy {&#34;health&#34;:&#34;true&#34;}
+
+etcd-0 Healthy {&#34;health&#34;:&#34;true&#34;}
+</code></pre></td></tr></table>
+</div>
+</div><p>7.查看服务集群IP、端口、运行时长</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">/opt/kubernetes/bin/kubectl get svc
+
+NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE
+
+kubernetes ClusterIP 10.0.0.1 &lt;none&gt; 443/TCP 4h51m
+
+nginx NodePort 10.0.0.215 &lt;none&gt; 88:40675/TCP 92m
+</code></pre></td></tr></table>
+</div>
+</div><p>在dashboard界面删除容器，发现无法删除。使用命令查看发现该pod一直处于terminating的状态</p>
+<p>Kubernetes强制删除一直处于Terminating状态的pod。</p>
+<p>1、使用命令获取pod的名字</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> kubectl get po -n NAMESPACE |grep Terminating
+</code></pre></td></tr></table>
+</div>
+</div><p>2、使用kubectl中的强制删除命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">kubectl delete pod podName -n NAMESPACE --force --grace-period=0 ```</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -276,13 +344,9 @@ kubectl config set-credentials docker-desktop --token<span class="o">=</span><sp
           <a href="/tags/kubernetes/">kubernetes</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/kubernetes_problem/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Kubernetes_problem</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/websocket/">
-            <span class="next-text nav-default">Websocket</span>
+        
+        <a class="next" href="/post/docker-desktop-kubernetes/">
+            <span class="next-text nav-default">Docker Desktop Kubernetes</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
