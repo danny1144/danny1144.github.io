@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>backend on Even - A super concise theme for Hugo</title>
+    <link>http://danny1144.github.io/tags/backend/</link>
+    <description>Recent content in backend on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 10 Jun 2020 16:34:21 +0800</lastBuildDate>
+    
+	<atom:link href="http://danny1144.github.io/tags/backend/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python_oracle</title>
+      <link>http://danny1144.github.io/post/python_oracle/</link>
+      <pubDate>Wed, 10 Jun 2020 16:34:21 +0800</pubDate>
+      
+      <guid>http://danny1144.github.io/post/python_oracle/</guid>
+      <description>环境问题 将连接oracle的python代码打包成exe文件给同事用时报错：Error: DPI-1047: Cannot locate a 64-bit Oracle Client library: &amp;ldquo;The specified module could not be found&amp;rdquo;. See https://oracle.github.io/odpi/doc/installation.html#windows for help windows</description>
+    </item>
+    
+  </channel>
+</rss>
