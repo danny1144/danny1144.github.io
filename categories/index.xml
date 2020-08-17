@@ -2,84 +2,84 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 程序员 - 一个苦逼与快乐的源泉</title>
-    <link>http://danny1144.github.io/categories/</link>
+    <link>https://localhost:1313/categories/</link>
     <description>Recent content in Categories on 程序员 - 一个苦逼与快乐的源泉</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>zh-CN</language>
     <lastBuildDate>Wed, 10 Jun 2020 16:34:21 +0800</lastBuildDate>
     
-	<atom:link href="http://danny1144.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>python</title>
-      <link>http://danny1144.github.io/categories/python/</link>
+      <link>https://localhost:1313/categories/python/</link>
       <pubDate>Wed, 10 Jun 2020 16:34:21 +0800</pubDate>
       
-      <guid>http://danny1144.github.io/categories/python/</guid>
+      <guid>https://localhost:1313/categories/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vue</title>
-      <link>http://danny1144.github.io/categories/vue/</link>
+      <link>https://localhost:1313/categories/vue/</link>
       <pubDate>Mon, 08 Jun 2020 14:39:00 +0800</pubDate>
       
-      <guid>http://danny1144.github.io/categories/vue/</guid>
+      <guid>https://localhost:1313/categories/vue/</guid>
       <description></description>
     </item>
     
     <item>
       <title>server</title>
-      <link>http://danny1144.github.io/categories/server/</link>
+      <link>https://localhost:1313/categories/server/</link>
       <pubDate>Fri, 05 Jun 2020 22:35:45 +0800</pubDate>
       
-      <guid>http://danny1144.github.io/categories/server/</guid>
+      <guid>https://localhost:1313/categories/server/</guid>
       <description></description>
     </item>
     
     <item>
       <title>front</title>
-      <link>http://danny1144.github.io/categories/front/</link>
+      <link>https://localhost:1313/categories/front/</link>
       <pubDate>Fri, 05 Jun 2020 14:54:09 +0800</pubDate>
       
-      <guid>http://danny1144.github.io/categories/front/</guid>
+      <guid>https://localhost:1313/categories/front/</guid>
       <description></description>
     </item>
     
     <item>
       <title>English</title>
-      <link>http://danny1144.github.io/categories/english/</link>
+      <link>https://localhost:1313/categories/english/</link>
       <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
       
-      <guid>http://danny1144.github.io/categories/english/</guid>
+      <guid>https://localhost:1313/categories/english/</guid>
       <description></description>
     </item>
     
     <item>
       <title>日本語</title>
-      <link>http://danny1144.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/</link>
+      <link>https://localhost:1313/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/</link>
       <pubDate>Wed, 30 Aug 2017 01:53:34 +0800</pubDate>
       
-      <guid>http://danny1144.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/</guid>
+      <guid>https://localhost:1313/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/</guid>
       <description></description>
     </item>
     
     <item>
       <title>中文</title>
-      <link>http://danny1144.github.io/categories/%E4%B8%AD%E6%96%87/</link>
+      <link>https://localhost:1313/categories/%E4%B8%AD%E6%96%87/</link>
       <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
       
-      <guid>http://danny1144.github.io/categories/%E4%B8%AD%E6%96%87/</guid>
+      <guid>https://localhost:1313/categories/%E4%B8%AD%E6%96%87/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Syntax Highlighting</title>
-      <link>http://danny1144.github.io/categories/syntax-highlighting/</link>
+      <link>https://localhost:1313/categories/syntax-highlighting/</link>
       <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
       
-      <guid>http://danny1144.github.io/categories/syntax-highlighting/</guid>
+      <guid>https://localhost:1313/categories/syntax-highlighting/</guid>
       <description></description>
     </item>
     
