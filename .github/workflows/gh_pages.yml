@@ -27,5 +27,4 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./public
       - name: Create CNAME
-        run: /
-          echo vite.work >>CNAME
+        run: echo vite.work >>CNAME
