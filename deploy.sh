@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
-
+#主题
+git submodule add https://gitee.com/fujiawei/hugo-theme-hello-friend.git themes/hello-friend
 # Build the project.
 hugo -t hello-friend
 
