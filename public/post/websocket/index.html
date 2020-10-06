@@ -1,165 +1,238 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-cn">
-<head>
+  <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Websocket - 程序员 - 一个苦逼与快乐的源泉</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<title>Websocket - 程序员 - 一个苦逼与快乐的源泉</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="author" content="dannyz" /><meta name="description" content="简介 WebSocket 协议在2008年诞生，2011年成为国际标准。所有浏览器都已经支持了。 它的最大特点就是，服务器可以主动向客户端推送信息，客户端也可以主" /><meta name="keywords" content="Hugo, theme, even" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.72.0 with theme even" />
-
-
-<link rel="canonical" href="http://danny1144.github.io/post/websocket/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="generator" content="Hugo 0.74.3" /><meta itemprop="name" content="Websocket">
+<meta itemprop="description" content="简介 WebSocket 协议在2008年诞生，2011年成为国际标准。所有浏览器都已经支持了。
+它的最大特点就是，服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息，是真正的双向平等对话，属于服务器推送技术的一种。WebSocket 允许服务器端与客户端进行全双工（full-duplex）的通信。举例来说，HTTP 协议有点像发电子邮件，发出后必须等待对方回信；WebSocket 则是像打电话，服务器端和客户端可以同时向对方发送数据，它们之间存着一条持续打开的数据通道。
+其他特点包括：
+（1）建立在 TCP 协议之上，服务器端的实现比较容易。
+（2）与 HTTP 协议有着良好的兼容性。默认端口也是80和443，并且握手阶段采用 HTTP 协议，因此握手时不容易屏蔽，能通过各种 HTTP 代理服务器。
+（3）数据格式比较轻量，性能开销小，通信高效。
+（4）可以发送文本，也可以发送二进制数据。
+（5）没有同源限制，客户端可以与任意服务器通信，完全可以取代 Ajax。
+（6）协议标识符是ws（如果加密，则为wss，对应 HTTPS 协议），服务器网址就是 URL。
+ws://example.com:80/some/path WebSocket 握手 浏览器发出的 WebSocket 握手请求类似于下面的样子：
+GET / HTTP/1.1 Connection: Upgrade Upgrade: websocket Host: example.com Origin: null Sec-WebSocket-Key: sN9cRrP/n9NdMgdcy2VJFQ== Sec-WebSocket-Version: 13 上面的头信息之中，有一个 HTTP 头是Upgrade。HTTP1.1 协议规定，Upgrade字段表示将通信协议从HTTP/1.1转向该字段指定的协议。Connection字段表示浏览器通知服务器，如果可以的话，就升级到 WebSocket 协议。Origin字段用于提供请求发出的域名，供服务器验证是否许可的范围内（服务器也可以不验证）。Sec-WebSocket-Key则是用于握手协议的密钥，是 Base64 编码的16字节随机字符串。
+服务器的 WebSocket 回应如下。
+HTTP/1.1 101 Switching Protocols Connection: Upgrade Upgrade: websocket Sec-WebSocket-Accept: fFBooB7FAkLlXgRSz0BT3v4hq5s= Sec-WebSocket-Origin: null Sec-WebSocket-Location: ws://example.">
+<meta itemprop="datePublished" content="2020-06-05T14:54:09+08:00" />
+<meta itemprop="dateModified" content="2020-06-05T14:54:09+08:00" />
+<meta itemprop="wordCount" content="533">
 
 
 
-<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
+<meta itemprop="keywords" content="websockete," />
 <meta property="og:title" content="Websocket" />
-<meta property="og:description" content="简介 WebSocket 协议在2008年诞生，2011年成为国际标准。所有浏览器都已经支持了。 它的最大特点就是，服务器可以主动向客户端推送信息，客户端也可以主" />
+<meta property="og:description" content="简介 WebSocket 协议在2008年诞生，2011年成为国际标准。所有浏览器都已经支持了。
+它的最大特点就是，服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息，是真正的双向平等对话，属于服务器推送技术的一种。WebSocket 允许服务器端与客户端进行全双工（full-duplex）的通信。举例来说，HTTP 协议有点像发电子邮件，发出后必须等待对方回信；WebSocket 则是像打电话，服务器端和客户端可以同时向对方发送数据，它们之间存着一条持续打开的数据通道。
+其他特点包括：
+（1）建立在 TCP 协议之上，服务器端的实现比较容易。
+（2）与 HTTP 协议有着良好的兼容性。默认端口也是80和443，并且握手阶段采用 HTTP 协议，因此握手时不容易屏蔽，能通过各种 HTTP 代理服务器。
+（3）数据格式比较轻量，性能开销小，通信高效。
+（4）可以发送文本，也可以发送二进制数据。
+（5）没有同源限制，客户端可以与任意服务器通信，完全可以取代 Ajax。
+（6）协议标识符是ws（如果加密，则为wss，对应 HTTPS 协议），服务器网址就是 URL。
+ws://example.com:80/some/path WebSocket 握手 浏览器发出的 WebSocket 握手请求类似于下面的样子：
+GET / HTTP/1.1 Connection: Upgrade Upgrade: websocket Host: example.com Origin: null Sec-WebSocket-Key: sN9cRrP/n9NdMgdcy2VJFQ== Sec-WebSocket-Version: 13 上面的头信息之中，有一个 HTTP 头是Upgrade。HTTP1.1 协议规定，Upgrade字段表示将通信协议从HTTP/1.1转向该字段指定的协议。Connection字段表示浏览器通知服务器，如果可以的话，就升级到 WebSocket 协议。Origin字段用于提供请求发出的域名，供服务器验证是否许可的范围内（服务器也可以不验证）。Sec-WebSocket-Key则是用于握手协议的密钥，是 Base64 编码的16字节随机字符串。
+服务器的 WebSocket 回应如下。
+HTTP/1.1 101 Switching Protocols Connection: Upgrade Upgrade: websocket Sec-WebSocket-Accept: fFBooB7FAkLlXgRSz0BT3v4hq5s= Sec-WebSocket-Origin: null Sec-WebSocket-Location: ws://example." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://danny1144.github.io/post/websocket/" />
+<meta property="og:url" content="https://localhost:1313/post/websocket/" />
 <meta property="article:published_time" content="2020-06-05T14:54:09+08:00" />
 <meta property="article:modified_time" content="2020-06-05T14:54:09+08:00" />
-<meta itemprop="name" content="Websocket">
-<meta itemprop="description" content="简介 WebSocket 协议在2008年诞生，2011年成为国际标准。所有浏览器都已经支持了。 它的最大特点就是，服务器可以主动向客户端推送信息，客户端也可以主">
-<meta itemprop="datePublished" content="2020-06-05T14:54:09&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-05T14:54:09&#43;08:00" />
-<meta itemprop="wordCount" content="2288">
-
-
-
-<meta itemprop="keywords" content="websockete," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Websocket"/>
-<meta name="twitter:description" content="简介 WebSocket 协议在2008年诞生，2011年成为国际标准。所有浏览器都已经支持了。 它的最大特点就是，服务器可以主动向客户端推送信息，客户端也可以主"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
+<meta name="twitter:description" content="简介 WebSocket 协议在2008年诞生，2011年成为国际标准。所有浏览器都已经支持了。
+它的最大特点就是，服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息，是真正的双向平等对话，属于服务器推送技术的一种。WebSocket 允许服务器端与客户端进行全双工（full-duplex）的通信。举例来说，HTTP 协议有点像发电子邮件，发出后必须等待对方回信；WebSocket 则是像打电话，服务器端和客户端可以同时向对方发送数据，它们之间存着一条持续打开的数据通道。
+其他特点包括：
+（1）建立在 TCP 协议之上，服务器端的实现比较容易。
+（2）与 HTTP 协议有着良好的兼容性。默认端口也是80和443，并且握手阶段采用 HTTP 协议，因此握手时不容易屏蔽，能通过各种 HTTP 代理服务器。
+（3）数据格式比较轻量，性能开销小，通信高效。
+（4）可以发送文本，也可以发送二进制数据。
+（5）没有同源限制，客户端可以与任意服务器通信，完全可以取代 Ajax。
+（6）协议标识符是ws（如果加密，则为wss，对应 HTTPS 协议），服务器网址就是 URL。
+ws://example.com:80/some/path WebSocket 握手 浏览器发出的 WebSocket 握手请求类似于下面的样子：
+GET / HTTP/1.1 Connection: Upgrade Upgrade: websocket Host: example.com Origin: null Sec-WebSocket-Key: sN9cRrP/n9NdMgdcy2VJFQ== Sec-WebSocket-Version: 13 上面的头信息之中，有一个 HTTP 头是Upgrade。HTTP1.1 协议规定，Upgrade字段表示将通信协议从HTTP/1.1转向该字段指定的协议。Connection字段表示浏览器通知服务器，如果可以的话，就升级到 WebSocket 协议。Origin字段用于提供请求发出的域名，供服务器验证是否许可的范围内（服务器也可以不验证）。Sec-WebSocket-Key则是用于握手协议的密钥，是 Base64 编码的16字节随机字符串。
+服务器的 WebSocket 回应如下。
+HTTP/1.1 101 Switching Protocols Connection: Upgrade Upgrade: websocket Sec-WebSocket-Accept: fFBooB7FAkLlXgRSz0BT3v4hq5s= Sec-WebSocket-Origin: null Sec-WebSocket-Location: ws://example."/>
+<link rel="stylesheet" href="/css/bundle.min.d9e04ae08c9b3049b766dbd4aeab7d862c5ea1d13679b621490e0f5df5507497.css" integrity="sha256-2eBK4IybMEm3ZtvUrqt9hixeodE2ebYhSQ4PXfVQdJc="><link rel="stylesheet" href="/css/add-on.css">
 </head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">快乐源泉</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">快乐源泉</a>
-</div>
 
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
+  <body>
     
-    <header class="post-header">
-      <h1 class="post-title">Websocket</h1>
 
-      <div class="post-meta">
-        <span class="post-time"> 2020-06-05 </span>
-        <div class="post-category">
-            <a href="/categories/front/"> front </a>
-            </div>
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
         
-      </div>
-    </header>
+          Websocket
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          <a href="/" class="nav link"> 首页</a>
+        
+      
+        
+          
+          <a href="/post/" class="nav link"> 归档</a>
+        
+      
+        
+          
+          <a href="/tags/" class="nav link"> 标签</a>
+        
+      
+        
+          
+          <a href="/categories/" class="nav link"> 分类</a>
+        
+      
+        
+          
+          <a href="/about/" class="nav link"> 关于</a>
+        
+      
+      <a href="#share-menu" class="nav link share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav link search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="nav lang-toggle" lang="zh-cn">zh-cn</a>
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu"></div></menu>
+  <menu id="lang-menu" class="flyout-menu menu">
+  <a href="#" lang="zh-cn" class="nav link active">中文 (zh-cn)</a>
+  
+    
+      
+    
+  
+</menu>
 
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#简介">简介</a></li>
-    <li><a href="#websocket-握手">WebSocket 握手</a></li>
-    <li><a href="#客户端的简单示例">客户端的简单示例</a></li>
-    <li><a href="#客户端-api">客户端 API</a>
-      <ul>
-        <li><a href="#构造函数-websocket">构造函数 WebSocket</a></li>
-        <li><a href="#websocketreadystate">webSocket.readyState</a></li>
-        <li><a href="#websocketonopen">webSocket.onopen</a></li>
-        <li><a href="#websocketonclose">webSocket.onclose</a></li>
-        <li><a href="#websocketonmessage">webSocket.onmessage</a></li>
-        <li><a href="#websocketsend">webSocket.send()</a></li>
-        <li><a href="#websocketbufferedamount">webSocket.bufferedAmount</a></li>
-        <li><a href="#websocketonerror">webSocket.onerror</a></li>
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+        <a href="mailto:?subject=%e6%9f%a5%e7%9c%8b%e6%ad%a4%e5%b8%96%e5%ad%90%e7%9a%84%e4%bd%9c%e8%80%85 dannyz&amp;body=https%3a%2f%2flocalhost%3a1313%2fpost%2fwebsocket%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+          <p>Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  <a href="/"><img src="https://localhost:1313/img/main/logo.jpg" class="circle" width="100" alt="Hugo Future Imperfect Slim" /></a>
+  <header>
+    <h1>nice to meet you</h1>
+  </header>
+  <main>
+    <p>created  by <a href='https://blog.fucos.top/'>爱思考的程序员</a>.</p>
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/danny1144/danny1144" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:1490284462@qq.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
       </ul>
-    </li>
-    <li><a href="#websocket-服务器">WebSocket 服务器</a></li>
-    <li><a href="#参考链接">参考链接</a></li>
-  </ul>
-</nav>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/post/websocket/">Websocket</a></h2>
+    
+    
   </div>
-</div>
-    <div class="post-content">
+  <div class="meta">
+    <time datetime="2020-06-05 14:54:09 &#43;0800 CST">June 5, 2020</time>
+    <p>dannyz</p>
+    <p>3 分钟</p>
+  </div>
+</header>
+
+    <div id="socnet-share">
+      
+
+
+
+
+  
+        <a href="mailto:?subject=%e6%9f%a5%e7%9c%8b%e6%ad%a4%e5%b8%96%e5%ad%90%e7%9a%84%e4%bd%9c%e8%80%85 dannyz&amp;body=https%3a%2f%2flocalhost%3a1313%2fpost%2fwebsocket%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+          <p>Email</p>
+        </a>
+  
+
+
+    </div>
+    <div class="content">
+      
       <h2 id="简介">简介</h2>
 <p>WebSocket 协议在2008年诞生，2011年成为国际标准。所有浏览器都已经支持了。</p>
 <p>它的最大特点就是，服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息，是真正的双向平等对话，属于服务器推送技术的一种。WebSocket 允许服务器端与客户端进行全双工（full-duplex）的通信。举例来说，HTTP 协议有点像发电子邮件，发出后必须等待对方回信；WebSocket 则是像打电话，服务器端和客户端可以同时向对方发送数据，它们之间存着一条持续打开的数据通道。</p>
@@ -170,98 +243,45 @@
 <p>（4）可以发送文本，也可以发送二进制数据。</p>
 <p>（5）没有同源限制，客户端可以与任意服务器通信，完全可以取代 Ajax。</p>
 <p>（6）协议标识符是<code>ws</code>（如果加密，则为<code>wss</code>，对应 HTTPS 协议），服务器网址就是 URL。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ws://example.com:80/some/path
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="websocket-握手">WebSocket 握手</h2>
+<pre><code>ws://example.com:80/some/path
+</code></pre><h2 id="websocket-握手">WebSocket 握手</h2>
 <p>浏览器发出的 WebSocket 握手请求类似于下面的样子：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">GET / HTTP/1.1
+<pre><code>GET / HTTP/1.1
 Connection: Upgrade
 Upgrade: websocket
 Host: example.com
 Origin: null
 Sec-WebSocket-Key: sN9cRrP/n9NdMgdcy2VJFQ==
 Sec-WebSocket-Version: 13
-</code></pre></td></tr></table>
-</div>
-</div><p>上面的头信息之中，有一个 HTTP 头是<code>Upgrade</code>。HTTP1.1 协议规定，<code>Upgrade</code>字段表示将通信协议从<code>HTTP/1.1</code>转向该字段指定的协议。<code>Connection</code>字段表示浏览器通知服务器，如果可以的话，就升级到 WebSocket 协议。<code>Origin</code>字段用于提供请求发出的域名，供服务器验证是否许可的范围内（服务器也可以不验证）。<code>Sec-WebSocket-Key</code>则是用于握手协议的密钥，是 Base64 编码的16字节随机字符串。</p>
+</code></pre><p>上面的头信息之中，有一个 HTTP 头是<code>Upgrade</code>。HTTP1.1 协议规定，<code>Upgrade</code>字段表示将通信协议从<code>HTTP/1.1</code>转向该字段指定的协议。<code>Connection</code>字段表示浏览器通知服务器，如果可以的话，就升级到 WebSocket 协议。<code>Origin</code>字段用于提供请求发出的域名，供服务器验证是否许可的范围内（服务器也可以不验证）。<code>Sec-WebSocket-Key</code>则是用于握手协议的密钥，是 Base64 编码的16字节随机字符串。</p>
 <p>服务器的 WebSocket 回应如下。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">HTTP/1.1 101 Switching Protocols
+<pre><code>HTTP/1.1 101 Switching Protocols
 Connection: Upgrade
 Upgrade: websocket
 Sec-WebSocket-Accept: fFBooB7FAkLlXgRSz0BT3v4hq5s=
 Sec-WebSocket-Origin: null
 Sec-WebSocket-Location: ws://example.com/
-</code></pre></td></tr></table>
-</div>
-</div><p>上面代码中，服务器同样用<code>Connection</code>字段通知浏览器，需要改变协议。<code>Sec-WebSocket-Accept</code>字段是服务器在浏览器提供的<code>Sec-WebSocket-Key</code>字符串后面，添加 <a href="https://tools.ietf.org/html/rfc6455">RFC6456</a> 标准规定的“258EAFA5-E914-47DA-95CA-C5AB0DC85B11”字符串，然后再取 SHA-1 的哈希值。浏览器将对这个值进行验证，以证明确实是目标服务器回应了 WebSocket 请求。<code>Sec-WebSocket-Location</code>字段表示进行通信的 WebSocket 网址。</p>
+</code></pre><p>上面代码中，服务器同样用<code>Connection</code>字段通知浏览器，需要改变协议。<code>Sec-WebSocket-Accept</code>字段是服务器在浏览器提供的<code>Sec-WebSocket-Key</code>字符串后面，添加 <a href="https://tools.ietf.org/html/rfc6455">RFC6456</a> 标准规定的“258EAFA5-E914-47DA-95CA-C5AB0DC85B11”字符串，然后再取 SHA-1 的哈希值。浏览器将对这个值进行验证，以证明确实是目标服务器回应了 WebSocket 请求。<code>Sec-WebSocket-Location</code>字段表示进行通信的 WebSocket 网址。</p>
 <p>完成握手以后，WebSocket 协议就在 TCP 协议之上，开始传送数据。</p>
 <h2 id="客户端的简单示例">客户端的简单示例</h2>
 <p>WebSocket 的用法相当简单。</p>
 <p>下面是一个网页脚本的例子，基本上一眼就能明白。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var ws = new WebSocket(&#39;wss://echo.websocket.org&#39;);
+<pre><code>var ws = new WebSocket('wss://echo.websocket.org');
 
 ws.onopen = function(evt) {
-  console.log(&#39;Connection open ...&#39;);
-  ws.send(&#39;Hello WebSockets!&#39;);
+  console.log('Connection open ...');
+  ws.send('Hello WebSockets!');
 };
 
 ws.onmessage = function(evt) {
-  console.log(&#39;Received Message: &#39; + evt.data);
+  console.log('Received Message: ' + evt.data);
   ws.close();
 };
 
 ws.onclose = function(evt) {
-  console.log(&#39;Connection closed.&#39;);
+  console.log('Connection closed.');
 };
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="客户端-api">客户端 API</h2>
+</code></pre><h2 id="客户端-api">客户端 API</h2>
 <p>浏览器对 WebSocket 协议的处理，无非就是三件事。</p>
 <ul>
 <li>建立连接和断开连接</li>
@@ -270,15 +290,8 @@ ws.onclose = function(evt) {
 </ul>
 <h3 id="构造函数-websocket">构造函数 WebSocket</h3>
 <p><code>WebSocket</code>对象作为一个构造函数，用于新建<code>WebSocket</code>实例。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var ws = new WebSocket(&#39;ws://localhost:8080&#39;);
-</code></pre></td></tr></table>
-</div>
-</div><p>执行上面语句之后，客户端就会与服务器进行连接。</p>
+<pre><code>var ws = new WebSocket('ws://localhost:8080');
+</code></pre><p>执行上面语句之后，客户端就会与服务器进行连接。</p>
 <h3 id="websocketreadystate">webSocket.readyState</h3>
 <p><code>readyState</code>属性返回实例对象的当前状态，共有四种。</p>
 <ul>
@@ -288,28 +301,7 @@ ws.onclose = function(evt) {
 <li>CLOSED：值为3，表示连接已经关闭，或者打开连接失败。</li>
 </ul>
 <p>下面是一个示例。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">switch (ws.readyState) {
+<pre><code>switch (ws.readyState) {
   case WebSocket.CONNECTING:
     // do something
     break;
@@ -326,213 +318,84 @@ ws.onclose = function(evt) {
     // this never happens
     break;
 }
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="websocketonopen">webSocket.onopen</h3>
+</code></pre><h3 id="websocketonopen">webSocket.onopen</h3>
 <p>实例对象的<code>onopen</code>属性，用于指定连接成功后的回调函数。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ws.onopen = function () {
-  ws.send(&#39;Hello Server!&#39;);
+<pre><code>ws.onopen = function () {
+  ws.send('Hello Server!');
 }
-</code></pre></td></tr></table>
-</div>
-</div><p>如果要指定多个回调函数，可以使用<code>addEventListener</code>方法。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ws.addEventListener(&#39;open&#39;, function (event) {
-  ws.send(&#39;Hello Server!&#39;);
+</code></pre><p>如果要指定多个回调函数，可以使用<code>addEventListener</code>方法。</p>
+<pre><code>ws.addEventListener('open', function (event) {
+  ws.send('Hello Server!');
 });
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="websocketonclose">webSocket.onclose</h3>
+</code></pre><h3 id="websocketonclose">webSocket.onclose</h3>
 <p>实例对象的<code>onclose</code>属性，用于指定连接关闭后的回调函数。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ws.onclose = function(event) {
+<pre><code>ws.onclose = function(event) {
   var code = event.code;
   var reason = event.reason;
   var wasClean = event.wasClean;
   // handle close event
 };
 
-ws.addEventListener(&#34;close&#34;, function(event) {
+ws.addEventListener(&quot;close&quot;, function(event) {
   var code = event.code;
   var reason = event.reason;
   var wasClean = event.wasClean;
   // handle close event
 });
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="websocketonmessage">webSocket.onmessage</h3>
+</code></pre><h3 id="websocketonmessage">webSocket.onmessage</h3>
 <p>实例对象的<code>onmessage</code>属性，用于指定收到服务器数据后的回调函数。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ws.onmessage = function(event) {
+<pre><code>ws.onmessage = function(event) {
   var data = event.data;
   // 处理数据
 };
 
-ws.addEventListener(&#34;message&#34;, function(event) {
+ws.addEventListener(&quot;message&quot;, function(event) {
   var data = event.data;
   // 处理数据
 });
-</code></pre></td></tr></table>
-</div>
-</div><p>注意，服务器数据可能是文本，也可能是二进制数据（<code>blob</code>对象或<code>Arraybuffer</code>对象）。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ws.onmessage = function(event){
+</code></pre><p>注意，服务器数据可能是文本，也可能是二进制数据（<code>blob</code>对象或<code>Arraybuffer</code>对象）。</p>
+<pre><code>ws.onmessage = function(event){
   if(typeOf event.data === String) {
-    console.log(&#34;Received data string&#34;);
+    console.log(&quot;Received data string&quot;);
   }
 
   if(event.data instanceof ArrayBuffer){
     var buffer = event.data;
-    console.log(&#34;Received arraybuffer&#34;);
+    console.log(&quot;Received arraybuffer&quot;);
   }
 }
-</code></pre></td></tr></table>
-</div>
-</div><p>除了动态判断收到的数据类型，也可以使用<code>binaryType</code>属性，显式指定收到的二进制数据类型。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 收到的是 blob 数据
-ws.binaryType = &#34;blob&#34;;
+</code></pre><p>除了动态判断收到的数据类型，也可以使用<code>binaryType</code>属性，显式指定收到的二进制数据类型。</p>
+<pre><code>// 收到的是 blob 数据
+ws.binaryType = &quot;blob&quot;;
 ws.onmessage = function(e) {
   console.log(e.data.size);
 };
 
 // 收到的是 ArrayBuffer 数据
-ws.binaryType = &#34;arraybuffer&#34;;
+ws.binaryType = &quot;arraybuffer&quot;;
 ws.onmessage = function(e) {
   console.log(e.data.byteLength);
 };
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="websocketsend">webSocket.send()</h3>
+</code></pre><h3 id="websocketsend">webSocket.send()</h3>
 <p>实例对象的<code>send()</code>方法用于向服务器发送数据。</p>
 <p>发送文本的例子。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ws.send(&#39;your message&#39;);
-</code></pre></td></tr></table>
-</div>
-</div><p>发送 Blob 对象的例子。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var file = document
-  .querySelector(&#39;input[type=&#34;file&#34;]&#39;)
+<pre><code>ws.send('your message');
+</code></pre><p>发送 Blob 对象的例子。</p>
+<pre><code>var file = document
+  .querySelector('input[type=&quot;file&quot;]')
   .files[0];
 ws.send(file);
-</code></pre></td></tr></table>
-</div>
-</div><p>发送 ArrayBuffer 对象的例子。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// Sending canvas ImageData as ArrayBuffer
+</code></pre><p>发送 ArrayBuffer 对象的例子。</p>
+<pre><code>// Sending canvas ImageData as ArrayBuffer
 var img = canvas_context.getImageData(0, 0, 400, 320);
 var binary = new Uint8Array(img.data.length);
 for (var i = 0; i &lt; img.data.length; i++) {
   binary[i] = img.data[i];
 }
 ws.send(binary.buffer);
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="websocketbufferedamount">webSocket.bufferedAmount</h3>
+</code></pre><h3 id="websocketbufferedamount">webSocket.bufferedAmount</h3>
 <p>实例对象的<code>bufferedAmount</code>属性，表示还有多少字节的二进制数据没有发送出去。它可以用来判断发送是否结束。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">var data = new ArrayBuffer(10000000);
+<pre><code>var data = new ArrayBuffer(10000000);
 socket.send(data);
 
 if (socket.bufferedAmount === 0) {
@@ -540,31 +403,16 @@ if (socket.bufferedAmount === 0) {
 } else {
   // 发送还没结束
 }
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="websocketonerror">webSocket.onerror</h3>
+</code></pre><h3 id="websocketonerror">webSocket.onerror</h3>
 <p>实例对象的<code>onerror</code>属性，用于指定报错时的回调函数。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">socket.onerror = function(event) {
+<pre><code>socket.onerror = function(event) {
   // handle error event
 };
 
-socket.addEventListener(&#34;error&#34;, function(event) {
+socket.addEventListener(&quot;error&quot;, function(event) {
   // handle error event
 });
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="websocket-服务器">WebSocket 服务器</h2>
+</code></pre><h2 id="websocket-服务器">WebSocket 服务器</h2>
 <p>WebSocket 协议需要服务器支持。各种服务器的实现，可以查看维基百科的<a href="https://en.wikipedia.org/wiki/Comparison_of_WebSocket_implementations">列表</a>。</p>
 <p>常用的 Node 实现有以下三种。</p>
 <ul>
@@ -612,100 +460,256 @@ socket.addEventListener(&#34;error&#34;, function(event) {
 </ul>
 
     </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">dannyz</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2020-06-05
-        
-    </span>
-  </p>
+    <footer>
+      <div class="stats">
   
+    <ul class="categories">
+      
+        
+          <li><a class="article-terms-link" href="/categories/front/">front</a></li>
+        
+      
+    </ul>
+  
+  
+    <ul class="tags">
+      
+        
+          <li><a class="article-terms-link" href="/tags/websockete/">websockete</a></li>
+        
+      
+    </ul>
   
 </div>
-<footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/websockete/">websockete</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/post/docker-desktop-kubernetes/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Docker Desktop Kubernetes</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/hidden-post/">
-            <span class="next-text nav-default">This is a hidden post.</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
+
     </footer>
   </article>
-        </div>
+  
+    
+  <article class="post">
+    
+    <div>
+      <h2 id="say-something">说些什么</h2>
+        <form id="comment-form" class="new-comment" method="POST">
+          
+          <h3 class='reply-notice hidden'>
+            <span class='reply-name'></span>
+          </h3>
+
+          
+          <input type="hidden" name="options[entryId]" value="f1fc7bcd2789de58e5c82e870c5eef73">
+          <input type='hidden' name='fields[replyThread]' value=''>
+          <input type='hidden' name='fields[replyID]' value=''>
+          <input type='hidden' name='fields[replyName]' value=''>
+
+          
+          <input required name='fields[name]' type='text' placeholder='你的名字'>
+          <input name='fields[website]' type='text' placeholder='您的网页'>
+          <input required name='fields[email]' type='email' placeholder='你的邮件'>
+          <textarea required name='fields[body]' placeholder='你的信息' rows='10'></textarea>
+
+          
+          
+
+          
+          <div class='submit-notice'>
+            <strong class='submit-notice-text submit-success hidden'>感谢您的评论！被批准后它会立即在此站点展示。</strong>
+            <strong class='submit-notice-text submit-failed hidden'>很抱歉，您的提交存在错误。请确保所有必填字段都已填写正确，然后再试一次。</strong>
+          </div>
+
+          
+          <input type='submit' value='送出' class='button'>
+          <input type='submit' value='已送出' class='hidden button' disabled>
+          <input type='reset' value='重设' class='button'>
+        </form>
+    </div>
+
+    
+    <div>
+      <h2>评论</h2>
+    </div>
+  </article>
+
+
+  
+  <div class="pagination">
+    
+      <a href="/post/docker-desktop-kubernetes/" class="button left"><span>Docker Desktop Kubernetes</span></a>
+    
+    
+      <a href="/post/hidden-post/" class="button right"><span>This is a hidden post.</span></a>
+    
+  </div>
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>最新文章</h1>
+      </header>
+      
+      <article class="mini-post">
+          
+        <header>
+          <h2><a href="/post/python_oracle/">Python_oracle</a></h2>
+          <time class="published" datetime="2020-06-10 16:34:21 &#43;0800 CST">June 10, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          
+        <header>
+          <h2><a href="/post/vue3_reactive/">Vue3_reactive</a></h2>
+          <time class="published" datetime="2020-06-08 14:39:00 &#43;0800 CST">June 8, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          
+        <header>
+          <h2><a href="/post/kubernetes_problem/">Kubernetes_problem</a></h2>
+          <time class="published" datetime="2020-06-05 22:35:45 &#43;0800 CST">June 5, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          
+        <header>
+          <h2><a href="/post/docker-desktop-kubernetes/">Docker Desktop Kubernetes</a></h2>
+          <time class="published" datetime="2020-06-05 15:31:54 &#43;0800 CST">June 5, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          
+        <header>
+          <h2><a href="/post/websocket/">Websocket</a></h2>
+          <time class="published" datetime="2020-06-05 14:54:09 &#43;0800 CST">June 5, 2020</time>
+        </header>
+      </article>
+      
+      
+        <footer>
+          <a href="/blog/" class="button">查看更多</a>
+        </footer>
+      
+    </section>
+  
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">分类</a></h1>
+        </header>
+        <ul>
+          
+          
+          <li>
+              <a href="/categories/server/">server<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/english/">english<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/front/">front<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/python/">python<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/syntax-highlighting/">syntax-highlighting<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/vue/">vue<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/%E4%B8%AD%E6%96%87/">中文<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/">日本語<span class="count">1</span></a>
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  
+    <section id="mini-bio">
+      <header>
+        <h1>关于</h1>
+      </header>
+      <p>This theme was developed for Hugo static site generator.</p>
+      <footer>
+        <a href="/about" class="button">学到更多</a>
+      </footer>
+    </section>
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
         
 
+        <li><a href="//github.com/danny1144/danny1144" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:1490284462@qq.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
   
+  <p class="copyright">
+    © 2020 程序员 - 一个苦逼与快乐的源泉
+      <br>
+    主题: <a href='https://themes.gohugo.io/hugo-future-imperfect-slim/' target='_blank' rel='noopener'>Hugo Future Imperfect Slim</a><br>移植自 <a href='https://html5up.net/future-imperfect' target='_blank' rel='noopener'>HTML5 UP</a> | 由 <a href='https://gohugo.io/' target='_blank' rel='noopener' title='0.74.3'>Hugo</a> 驱动
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
 
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="1490284462@qq.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/danny1144" class="iconfont icon-github" title="github"></a>
-      <a href="https://space.bilibili.com/234485086" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="http://danny1144.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">Dannyz</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
+      <script src="/js/highlight.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script><script src="/js/bundle.min.3ba664f89df84cb3c69e3dd04c9c468070c352ee98e78c8b4d280563e38ba5bd.js" integrity="sha256-O6Zk&#43;J34TLPGnj3QTJxGgHDDUu6Y54yLTSgFY&#43;OLpb0="></script>
+    <script src="/js/add-on.js"></script>
     </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
-
-
-
-
-
-
-
-
-</body>
+  </body>
 </html>

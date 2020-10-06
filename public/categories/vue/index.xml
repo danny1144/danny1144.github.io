@@ -2,22 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>vue on 程序员 - 一个苦逼与快乐的源泉</title>
-    <link>http://danny1144.github.io/categories/vue/</link>
+    <link>https://localhost:1313/categories/vue/</link>
     <description>Recent content in vue on 程序员 - 一个苦逼与快乐的源泉</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>zh-CN</language>
     <lastBuildDate>Mon, 08 Jun 2020 14:39:00 +0800</lastBuildDate>
     
-	<atom:link href="http://danny1144.github.io/categories/vue/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://localhost:1313/categories/vue/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Vue3_reactive</title>
-      <link>http://danny1144.github.io/post/vue3_reactive/</link>
+      <link>https://localhost:1313/post/vue3_reactive/</link>
       <pubDate>Mon, 08 Jun 2020 14:39:00 +0800</pubDate>
       
-      <guid>http://danny1144.github.io/post/vue3_reactive/</guid>
-      <description>vue3.0 Beta发布，顺便来看看Vue3 的响应式和以前有什么区别 正文 大家都知道，Vue2 里的响应式其实有点像是一个半完全体，对于对象上新增的属性无</description>
+      <guid>https://localhost:1313/post/vue3_reactive/</guid>
+      <description>vue3.0 Beta发布，顺便来看看Vue3 的响应式和以前有什么区别 正文 大家都知道，Vue2 里的响应式其实有点像是一个半完全体，对于对象上新增的属性无能为力，对于数组则需要拦截它的原型方法来实现响应式。
+举个例子：
+let vm = new Vue({data() {a: 1}})// ❌ oops，没反应！vm.b = 2 let vm = new Vue({data() {a: 1},watch: {b() {console.log(&#39;change !!&#39;)}}})// ❌ oops，没反应！vm.b = 2这种时候，Vue 提供了一个 api：this.$set，来使得新增的属性也拥有响应式的效果。
+但是对于很多新手来说，很多时候需要小心翼翼的去判断到底什么情况下需要用 $set，什么时候可以直接触发响应式。
+总之，在 Vue3 中，这些都将成为过去。本篇文章会带你仔细讲解，proxy 到底会给 Vue3 带来怎么样的便利。并且会从源码级别，告诉你这些都是如何实现的。
+响应式仓库 Vue3 不同于 Vue2 也体现在源码结构上，Vue3 把耦合性比较低的包分散在 packages 目录下单独发布成 npm 包。这也是目前很流行的一种大型项目管理方式 Monorepo。</description>
     </item>
     
   </channel>

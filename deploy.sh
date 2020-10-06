@@ -3,7 +3,7 @@
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
 # Build the project.
-hugo -t ananke
+hugo -t hugo-future-imperfect-slim
 
 # Add changes to git.
 git add .
