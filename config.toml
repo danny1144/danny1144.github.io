@@ -1,6 +1,6 @@
 # For a description of these parameters, please visit the theme wiki.
 # https://github.com/pacollins/hugo-future-imperfect-slim/wiki/config.toml
-baseurl                 = "http://danny1144.github.io/"
+baseurl                 = "https://vite.work/"
 defaultContentLanguage = "zh-cn"                             # en / zh-cn / ... (This field determines which i18n file to use)
 title = "程序员 - 一个苦逼与快乐的源泉"
 theme                   = "hugo-future-imperfect-slim"
