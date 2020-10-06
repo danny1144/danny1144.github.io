@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>nodejs on 程序员 - 一个苦逼与快乐的源泉</title>
-    <link>https://localhost:1313/categories/nodejs/</link>
+    <link>https://vite.work/categories/nodejs/</link>
     <description>Recent content in nodejs on 程序员 - 一个苦逼与快乐的源泉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Tue, 06 Oct 2020 19:57:05 +0800</lastBuildDate>
     
-	<atom:link href="https://localhost:1313/categories/nodejs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vite.work/categories/nodejs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Yarn Npm Error</title>
-      <link>https://localhost:1313/post/yarn-npm-error/</link>
+      <link>https://vite.work/post/yarn-npm-error/</link>
       <pubDate>Tue, 06 Oct 2020 19:57:05 +0800</pubDate>
       
-      <guid>https://localhost:1313/post/yarn-npm-error/</guid>
+      <guid>https://vite.work/post/yarn-npm-error/</guid>
       <description>npm or yarn 包校验失败 npm 和 yarn 缓存清理 npm cache clean —force yarn cache clean </description>
     </item>
     
