@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>vue on 程序员 - 一个苦逼与快乐的源泉</title>
-    <link>https://localhost:1313/tags/vue/</link>
+    <link>https://vite.work/tags/vue/</link>
     <description>Recent content in vue on 程序员 - 一个苦逼与快乐的源泉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Tue, 06 Oct 2020 19:57:05 +0800</lastBuildDate>
     
-	<atom:link href="https://localhost:1313/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vite.work/tags/vue/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Yarn Npm Error</title>
-      <link>https://localhost:1313/post/yarn-npm-error/</link>
+      <link>https://vite.work/post/yarn-npm-error/</link>
       <pubDate>Tue, 06 Oct 2020 19:57:05 +0800</pubDate>
       
-      <guid>https://localhost:1313/post/yarn-npm-error/</guid>
+      <guid>https://vite.work/post/yarn-npm-error/</guid>
       <description>npm or yarn 包校验失败 npm 和 yarn 缓存清理 npm cache clean —force yarn cache clean </description>
     </item>
     
     <item>
       <title>Vue3_reactive</title>
-      <link>https://localhost:1313/post/vue3_reactive/</link>
+      <link>https://vite.work/post/vue3_reactive/</link>
       <pubDate>Mon, 08 Jun 2020 14:39:00 +0800</pubDate>
       
-      <guid>https://localhost:1313/post/vue3_reactive/</guid>
+      <guid>https://vite.work/post/vue3_reactive/</guid>
       <description>vue3.0 Beta发布，顺便来看看Vue3 的响应式和以前有什么区别 正文 大家都知道，Vue2 里的响应式其实有点像是一个半完全体，对于对象上新增的属性无能为力，对于数组则需要拦截它的原型方法来实现响应式。
 举个例子：
 let vm = new Vue({ data() { a: 1 } }) // ❌ oops，没反应！ vm.b = 2 let vm = new Vue({ data() { a: 1 }, watch: { b() { console.log(&#39;change !!&#39;) } } }) // ❌ oops，没反应！ vm.b = 2 这种时候，Vue 提供了一个 api：this.$set，来使得新增的属性也拥有响应式的效果。

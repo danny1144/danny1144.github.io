@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Post on 程序员 - 一个苦逼与快乐的源泉</title>
-    <link>https://localhost:1313/post/</link>
+    <link>https://vite.work/post/</link>
     <description>Recent content in Post on 程序员 - 一个苦逼与快乐的源泉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Tue, 06 Oct 2020 19:57:05 +0800</lastBuildDate>
     
-	<atom:link href="https://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vite.work/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Yarn Npm Error</title>
-      <link>https://localhost:1313/post/yarn-npm-error/</link>
+      <link>https://vite.work/post/yarn-npm-error/</link>
       <pubDate>Tue, 06 Oct 2020 19:57:05 +0800</pubDate>
       
-      <guid>https://localhost:1313/post/yarn-npm-error/</guid>
+      <guid>https://vite.work/post/yarn-npm-error/</guid>
       <description>npm or yarn 包校验失败 npm 和 yarn 缓存清理 npm cache clean —force yarn cache clean </description>
     </item>
     
     <item>
       <title>Python_oracle</title>
-      <link>https://localhost:1313/post/python_oracle/</link>
+      <link>https://vite.work/post/python_oracle/</link>
       <pubDate>Wed, 10 Jun 2020 16:34:21 +0800</pubDate>
       
-      <guid>https://localhost:1313/post/python_oracle/</guid>
+      <guid>https://vite.work/post/python_oracle/</guid>
       <description>环境问题 将连接oracle的python代码打包成exe文件给同事用时报错：Error: DPI-1047: Cannot locate a 64-bit Oracle Client library: &amp;ldquo;The specified module could not be found&amp;rdquo;. See https://oracle.github.io/odpi/doc/installation.html#windows for help
  windows解决办法一：  1、安装oracle 64位客户端 2、配置环境path，将客户端的目录，比如d:\oracle\product\11.2.0\client_1\bin 配置到path中 3、前面两步做完，执行报了另一个错 ora-01804 ，将 ORACLE_HOME目录设置为 d:\oracle\product\11.2.0\client_1 后，问题解决。
  windows解决办法二：  1、下载轻量级的Oracle客户端： 比如 instantclient-basic-windows.x64-11.2.0.4.0.zip 2、配置环境变量path： 将客户端的目录，比如 D:\oracle\instantclient_11_2 添加到 path 3、配置环境变量ORACL_HOME： 将客户端的上一级目录 ，比如 D:\oracle 设置为ORACLE_HOME的值 4、上面3步做完，执行报错：nls_lan python Error: &#39;ascii&#39; codec can&#39;t encode characters in position 28-31: ordinal not in range(128), 然后添加环境变量NLS_LANG，设置为：AMERICAN_AMERICA.ZHS16GBK，其值是数据库nls_database_parameters中NLS_LANGUAGE，NLS_TERRITORY，NLS_CHARACTERSET分别对应的值； 设置完成后执行成功。
@@ -34,10 +34,10 @@
     
     <item>
       <title>Vue3_reactive</title>
-      <link>https://localhost:1313/post/vue3_reactive/</link>
+      <link>https://vite.work/post/vue3_reactive/</link>
       <pubDate>Mon, 08 Jun 2020 14:39:00 +0800</pubDate>
       
-      <guid>https://localhost:1313/post/vue3_reactive/</guid>
+      <guid>https://vite.work/post/vue3_reactive/</guid>
       <description>vue3.0 Beta发布，顺便来看看Vue3 的响应式和以前有什么区别 正文 大家都知道，Vue2 里的响应式其实有点像是一个半完全体，对于对象上新增的属性无能为力，对于数组则需要拦截它的原型方法来实现响应式。
 举个例子：
 let vm = new Vue({ data() { a: 1 } }) // ❌ oops，没反应！ vm.b = 2 let vm = new Vue({ data() { a: 1 }, watch: { b() { console.log(&#39;change !!&#39;) } } }) // ❌ oops，没反应！ vm.b = 2 这种时候，Vue 提供了一个 api：this.$set，来使得新增的属性也拥有响应式的效果。
@@ -48,10 +48,10 @@ let vm = new Vue({ data() { a: 1 } }) // ❌ oops，没反应！ vm.b = 2 let vm
     
     <item>
       <title>Kubernetes_problem</title>
-      <link>https://localhost:1313/post/kubernetes_problem/</link>
+      <link>https://vite.work/post/kubernetes_problem/</link>
       <pubDate>Fri, 05 Jun 2020 22:35:45 +0800</pubDate>
       
-      <guid>https://localhost:1313/post/kubernetes_problem/</guid>
+      <guid>https://vite.work/post/kubernetes_problem/</guid>
       <description>K8S故障排除方法 1.查看pods哪些是有问题的，Runningg正常，其他异常； /opt/kubernetes/bin/kubectl get pods --all-namespaces -owide NAMESPACE NAME READY STATUS RESTARTS AGE IP NODE NOMINATED NODE default nginx-dbddb74b8-d78cd 1/1 Running 0 17m 172.17.90.3 192.168.18.148 &amp;lt;none&amp;gt; 2.查看异常pod的详情 /opt/kubernetes/bin/kubectl describe pods nginx-dbddb74b8-2hthr 我这边异常信息如下：
 Warning FailedScheduling 32m (x2 over 32m) default-scheduler 0/2 nodes are available: 2 node(s) had taints that the pod didn&#39;t tolerate.
 解决办法：参考：https://github.com/kubernetes-sigs/kubespray/issues/2798
@@ -60,10 +60,10 @@ Warning FailedScheduling 32m (x2 over 32m) default-scheduler 0/2 nodes are avail
     
     <item>
       <title>Docker Desktop Kubernetes</title>
-      <link>https://localhost:1313/post/docker-desktop-kubernetes/</link>
+      <link>https://vite.work/post/docker-desktop-kubernetes/</link>
       <pubDate>Fri, 05 Jun 2020 15:31:54 +0800</pubDate>
       
-      <guid>https://localhost:1313/post/docker-desktop-kubernetes/</guid>
+      <guid>https://vite.work/post/docker-desktop-kubernetes/</guid>
       <description>windows10 docker-desktop安装kuberetes:v1.15.5  对应版本    首先创建一个镜像对应表文件 images.properties：
 k8s.gcr.io/pause:3.1=registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.1 k8s.gcr.io/kube-controller-manager:v1.15.5=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager:v1.15.5 k8s.gcr.io/kube-scheduler:v1.15.5=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler:v1.15.5 k8s.gcr.io/kube-proxy:v1.15.5=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy:v1.15.5 k8s.gcr.io/kube-apiserver:v1.15.5=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver:v1.15.5 k8s.gcr.io/etcd:3.3.10=registry.cn-hangzhou.aliyuncs.com/google_containers/etcd:3.3.10 k8s.gcr.io/coredns:1.3.1=registry.cn-hangzhou.aliyuncs.com/google_containers/coredns:1.3.1 k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1=registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.10.1   然后在相同目录下，创建脚本 docker-images-k8s.ps1：
   foreach($line in Get-Content .\images.properties) { $data = $line.Split(&#39;=&#39;) $key = $data[0]; $value = $data[1]; Write-Output &amp;quot;$key=$value&amp;quot; docker pull ${value} docker tag ${value} ${key} docker rmi ${value} }   执行上面的脚本
@@ -73,10 +73,10 @@ k8s.gcr.io/pause:3.1=registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3
     
     <item>
       <title>Websocket</title>
-      <link>https://localhost:1313/post/websocket/</link>
+      <link>https://vite.work/post/websocket/</link>
       <pubDate>Fri, 05 Jun 2020 14:54:09 +0800</pubDate>
       
-      <guid>https://localhost:1313/post/websocket/</guid>
+      <guid>https://vite.work/post/websocket/</guid>
       <description>简介 WebSocket 协议在2008年诞生，2011年成为国际标准。所有浏览器都已经支持了。
 它的最大特点就是，服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息，是真正的双向平等对话，属于服务器推送技术的一种。WebSocket 允许服务器端与客户端进行全双工（full-duplex）的通信。举例来说，HTTP 协议有点像发电子邮件，发出后必须等待对方回信；WebSocket 则是像打电话，服务器端和客户端可以同时向对方发送数据，它们之间存着一条持续打开的数据通道。
 其他特点包括：
@@ -94,29 +94,29 @@ HTTP/1.1 101 Switching Protocols Connection: Upgrade Upgrade: websocket Sec-WebS
     
     <item>
       <title>This is a hidden post.</title>
-      <link>https://localhost:1313/post/hidden-post/</link>
+      <link>https://vite.work/post/hidden-post/</link>
       <pubDate>Thu, 08 Mar 2018 17:40:19 +0800</pubDate>
       
-      <guid>https://localhost:1313/post/hidden-post/</guid>
+      <guid>https://vite.work/post/hidden-post/</guid>
       <description>&lt;p&gt;This post is hidden from the home page.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>[English] Creating a New Theme</title>
-      <link>https://localhost:1313/post/english-preview/</link>
+      <link>https://vite.work/post/english-preview/</link>
       <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
       
-      <guid>https://localhost:1313/post/english-preview/</guid>
+      <guid>https://vite.work/post/english-preview/</guid>
       <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&#39;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&#39;t cover using CSS to style your theme.
 We&#39;ll start with creating a new site with a very basic template.</description>
     </item>
     
     <item>
       <title>[日本語] 敬語体系</title>
-      <link>https://localhost:1313/post/japanese-preview/</link>
+      <link>https://vite.work/post/japanese-preview/</link>
       <pubDate>Wed, 30 Aug 2017 01:53:34 +0800</pubDate>
       
-      <guid>https://localhost:1313/post/japanese-preview/</guid>
+      <guid>https://vite.work/post/japanese-preview/</guid>
       <description>日本語の敬語体系は、一般に、大きく尊敬語・謙譲語・丁寧語に分類される。文化審議会国語分科会は、2007年2月に「敬語の指針」を答申し、これに丁重語および美化語を含めた5分類を示している。
  尊敬語 尊敬語は、動作の主体を高めることで、主体への敬意を表す言い方である。動詞に「お（ご）～になる」を付けた形、また、助動詞「（ら）れる」を付けた形などが用いられる。たとえば、動詞「取る」の尊敬形として、「（先生が）お取りになる」「（先生が）取られる」などが用いられる。
 語によっては、特定の尊敬語が対応するものもある。たとえば、「言う」の尊敬語は「おっしゃる」、「食べる」の尊敬語は「召し上がる」、「行く・来る・いる」の尊敬語は「いらっしゃる」である。
@@ -130,10 +130,10 @@ We&#39;ll start with creating a new site with a very basic template.</descriptio
     
     <item>
       <title>[中文] 《长恨歌》</title>
-      <link>https://localhost:1313/post/chinese-preview/</link>
+      <link>https://vite.work/post/chinese-preview/</link>
       <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
       
-      <guid>https://localhost:1313/post/chinese-preview/</guid>
+      <guid>https://vite.work/post/chinese-preview/</guid>
       <description>《长恨歌》是中国唐朝诗人白居易的一首长篇叙事诗。
  第一段：贵妃受宠爱 汉皇重色思倾国，御宇多年求不得。杨家有女初长成，养在深闺人未识。
 天生丽质难自弃，一朝选在君王侧。回眸一笑百媚生，六宫粉黛无颜色。
@@ -170,10 +170,10 @@ We&#39;ll start with creating a new site with a very basic template.</descriptio
     
     <item>
       <title>JS Flowchart Diagrams</title>
-      <link>https://localhost:1313/post/js-flowchart-diagrams/</link>
+      <link>https://vite.work/post/js-flowchart-diagrams/</link>
       <pubDate>Wed, 04 Mar 2015 21:57:50 +0800</pubDate>
       
-      <guid>https://localhost:1313/post/js-flowchart-diagrams/</guid>
+      <guid>https://vite.work/post/js-flowchart-diagrams/</guid>
       <description>&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
 &lt;pre&gt;&lt;code class=&#34;language-flow&#34; data-lang=&#34;flow&#34;&gt;st=&amp;gt;start: Start|past:&amp;gt;http://www.google.com[blank]
 e=&amp;gt;end: End:&amp;gt;http://www.google.com
@@ -195,10 +195,10 @@ c2(no)-&amp;gt;op2-&amp;gt;e
     
     <item>
       <title>JS Sequence Diagrams</title>
-      <link>https://localhost:1313/post/js-sequence-diagrams/</link>
+      <link>https://vite.work/post/js-sequence-diagrams/</link>
       <pubDate>Wed, 04 Mar 2015 21:57:45 +0800</pubDate>
       
-      <guid>https://localhost:1313/post/js-sequence-diagrams/</guid>
+      <guid>https://vite.work/post/js-sequence-diagrams/</guid>
       <description>&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
 &lt;pre&gt;&lt;code class=&#34;language-sequence&#34; data-lang=&#34;sequence&#34;&gt;Andrew-&amp;gt;China: Says Hello
 Note right of China: China thinks\nabout it
@@ -209,10 +209,10 @@ Andrew-&amp;gt;&amp;gt;China: I am good thanks!
     
     <item>
       <title>Syntax Highlighting</title>
-      <link>https://localhost:1313/post/syntax-highlighting/</link>
+      <link>https://vite.work/post/syntax-highlighting/</link>
       <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
       
-      <guid>https://localhost:1313/post/syntax-highlighting/</guid>
+      <guid>https://vite.work/post/syntax-highlighting/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;helloWorld&lt;/span&gt; () {
   &lt;span style=&#34;color:#a6e22e&#34;&gt;alert&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;)
 }
