@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="utf-8">
+<title>JS Sequence Diagrams - 程序员 - 一个苦逼与快乐的源泉</title>
+<meta name="description" content="A theme by HTML5 UP, ported by Julio Pescador. Slimmed and enhanced by Patrick Collins. Multilingual by StatnMap. Powered by Hugo.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <meta name="generator" content="Hugo 0.71.1" />
+  <meta itemprop="name" content="JS Sequence Diagrams">
+<meta itemprop="description" content="Usage
+Andrew-&gt;China: Says Hello
+Note right of China: China thinks\nabout it
+China--&gt;Andrew: How are you?
+Andrew-&gt;&gt;China: I am good thanks!
+">
+<meta itemprop="datePublished" content="2015-03-04T21:57:45&#43;08:00" />
+<meta itemprop="dateModified" content="2015-03-04T21:57:45&#43;08:00" />
+<meta itemprop="wordCount" content="249">
+
+
+
+<meta itemprop="keywords" content="" />
+  <meta property="og:title" content="JS Sequence Diagrams" />
+<meta property="og:description" content="Usage
+Andrew-&gt;China: Says Hello
+Note right of China: China thinks\nabout it
+China--&gt;Andrew: How are you?
+Andrew-&gt;&gt;China: I am good thanks!
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vite.work/post/js-sequence-diagrams/" />
+<meta property="article:published_time" content="2015-03-04T21:57:45+08:00" />
+<meta property="article:modified_time" content="2015-03-04T21:57:45+08:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JS Sequence Diagrams"/>
+<meta name="twitter:description" content="Usage
+Andrew-&gt;China: Says Hello
+Note right of China: China thinks\nabout it
+China--&gt;Andrew: How are you?
+Andrew-&gt;&gt;China: I am good thanks!
+"/>
+
+  
+
+  <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+  
+    
+      <link rel="stylesheet" href="/css/normalize.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+      <link rel="stylesheet" href="/css/main.min.css">
+      <link rel="stylesheet" href="/css/add-on.css">
+    
+  
+  
+</head>
+
+  <body>
+    
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/">
+        
+          
+            post
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu">
+      
+        <a href="/" class="link"><i class="home">&nbsp;</i>首页</a>
+      
+        <a href="/post/" class="link"><i class="archives">&nbsp;</i>归档</a>
+      
+        <a href="/tags/" class="link"><i class="tags">&nbsp;</i>标签</a>
+      
+        <a href="/categories/" class="link"><i class="categories">&nbsp;</i>分类</a>
+      
+        <a href="/about/" class="link"><i class="">&nbsp;</i>关于</a>
+      
+      <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      
+
+    </menu>
+    
+
+    <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="lang-toggle" lang="zh-cn"><span class="flag-icon flag-icon-zh-cn" alt="zh-cn"></span></a>
+    <a href="#site-nav" class="nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="lang-menu" class="flyout-menu">
+  <a href="#" lang="zh-cn" class="active"><span class="flag-icon flag-icon-zh-cn" alt="zh-cn"></span></a>
+  
+    
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu">
+      <h1>Share Post</h1>
+      
+
+
+
+  
+        <a href="mailto:?subject=Check out this post by &amp;body=" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro">
+  <a href="/"><img src="/img/main/logo.jpg" class="circle" width="" alt="Hugo Future Imperfect Slim" /></a>
+  <header>
+    <h1>nice to meet you</h1>
+  </header>
+  <main>
+    <p>created  by <a href='https://blog.fucos.top/'>爱思考的程序员</a>.</p>
+  </main>
+  
+    <footer>
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/danny1144/danny1144" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:1490284462@qq.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        <article class="post">
+  <header>
+  <div class="title">
+    
+        <h2><a href="/post/js-sequence-diagrams/">JS Sequence Diagrams</a></h2>
+    
+    
+</div>
+  <div class="meta">
+    <time class="published" datetime="2015-03-04 21:57:45 &#43;0800 CST">
+      
+    </time>
+    <span class="author"></span>
+    
+        <p>2 </p>
+    
+  </div>
+</header>
+
+  <section id="social-share">
+    
+
+
+
+  
+        <a href="mailto:?subject=Check out this post by &amp;body=" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+  </section>
+  
+
+  <div class="content">
+    <h2 id="usage">Usage</h2>
+<pre><code class="language-sequence" data-lang="sequence">Andrew-&gt;China: Says Hello
+Note right of China: China thinks\nabout it
+China--&gt;Andrew: How are you?
+Andrew-&gt;&gt;China: I am good thanks!
+</code></pre><pre><code class="language-sequence" data-lang="sequence">    Andrew-&gt;China: Says Hello
+    Note right of China: China thinks\nabout it
+    China--&gt;Andrew: How are you?
+    Andrew-&gt;&gt;China: I am good thanks!
+    ```
+
+## Configuration
+
+Configure for all home and regular pages:
+
+```toml
+[params.sequenceDiagrams]
+  enable = true
+  options = &quot;{theme: 'hand'}&quot;
+</code></pre><p>Configure for a single post in the front matter (<strong>Params in front matter have higher precedence</strong>):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">sequenceDiagrams</span>: 
+  <span style="color:#66d9ef">enable</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">options</span>: <span style="color:#e6db74">&#34;{theme: &#39;hand&#39;}&#34;</span>
+</code></pre></div><h3 id="options">Options</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> {
+  <span style="color:#75715e">// Change the styling of the diagram, typically one of &#39;simple&#39;, &#39;hand&#39;. New themes can be registered with registerTheme(...).
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">theme</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>,
+
+  <span style="color:#75715e">// CSS style to apply to the diagram&#39;s svg tag. (Only supported if using snap.svg)
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">css_class</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>,
+}
+</code></pre></div><p>See more information from <a href="https://github.com/bramp/js-sequence-diagrams">https://github.com/bramp/js-sequence-diagrams</a>.</p>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-sequence" data-lang="sequence">Title: Here is a title
+A-&gt;B: Normal line
+B--&gt;C: Dashed line
+C-&gt;&gt;D: Open arrow
+D--&gt;&gt;A: Dashed open arrow
+</code></pre><pre><code>```sequence
+Title: Here is a title
+A-&gt;B: Normal line
+B--&gt;C: Dashed line
+C-&gt;&gt;D: Open arrow
+D--&gt;&gt;A: Dashed open arrow
+```
+</code></pre>
+<hr>
+<pre><code class="language-sequence" data-lang="sequence"># Example of a comment.
+Note left of A: Note to the\n left of A
+Note right of A: Note to the\n right of A
+Note over A: Note over A
+Note over A,B: Note over both A and B
+</code></pre><pre><code>```sequence
+# Example of a comment.
+Note left of A: Note to the\n left of A
+Note right of A: Note to the\n right of A
+Note over A: Note over A
+Note over A,B: Note over both A and B
+```
+</code></pre>
+  </div>
+  <footer>
+    <ul class="stats">
+  
+    <li class="categories">
+      <ul>
+        <li>None</li>
+      </ul>
+    </li>
+  
+  
+    <li class="tags">
+      <ul>
+        <li>None</li>
+      </ul>
+    </li>
+  
+</ul>
+
+  </footer>
+</article>
+<article class="post">
+  
+
+</article>
+<div class="pagination">
+  
+    <a href="/post/syntax-highlighting/" class="button big previous"><i class="fas fa-angle-left"></i> Syntax Highlighting</a>
+  
+  
+    <a href="/post/js-flowchart-diagrams/" class="button big next">JS Flowchart Diagrams <i class="fas fa-angle-right"></i></a>
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  <section id="recent-posts">
+    <header>
+      <h1></h1>
+    </header>
+    
+    <article class="mini-post">
+      <section>
+        
+
+      </section>
+      <header>
+        <h1><a href="/post/">Post</a></h1>
+        <time class="published" datetime=""></time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+
+      </section>
+      <header>
+        <h1><a href="/post/yarn-npm-error/">Yarn Npm Error</a></h1>
+        <time class="published" datetime=""></time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+
+      </section>
+      <header>
+        <h1><a href="/post/python_oracle/">Python_oracle</a></h1>
+        <time class="published" datetime=""></time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+
+      </section>
+      <header>
+        <h1><a href="/post/vue3_reactive/">Vue3_reactive</a></h1>
+        <time class="published" datetime=""></time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+
+      </section>
+      <header>
+        <h1><a href="/post/kubernetes_problem/">Kubernetes_problem</a></h1>
+        <time class="published" datetime=""></time>
+      </header>
+    </article>
+    
+    
+      <a href="/blog/" class="button"></a>
+    
+  </section>
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories"></a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/server/">server<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/english/">english<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/front/">front<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/nodejs/">nodejs<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/python/">python<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/syntax-highlighting/">syntax-highlighting<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/vue/">vue<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/%E4%B8%AD%E6%96%87/">中文<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/">日本語<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  <section id="mini-bio">
+    <header>
+      <h1></h1>
+    </header>
+    <p>This theme was developed for Hugo static site generator.</p>
+    <footer>
+      <a href="/about" class="button"></a>
+    </footer>
+  </section>
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/danny1144/danny1144" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:1490284462@qq.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2020
+      
+        程序员 - 一个苦逼与快乐的源泉
+      
+    .
+    Powered by <a href="//gohugo.io" target="_blank" rel="noopener">Hugo</a>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  
+  <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  <script src=/js/util.js></script>
+  <script src=/js/main.js></script>
+  <script src=/js/add-on.js></script>
+  
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+    </div>
+  </body>
+</html>

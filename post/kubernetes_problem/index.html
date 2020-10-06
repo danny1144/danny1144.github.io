@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="utf-8">
+<title>Kubernetes_problem - 程序员 - 一个苦逼与快乐的源泉</title>
+<meta name="description" content="kubernetes 故障检查策略">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <meta name="generator" content="Hugo 0.71.1" />
+  <meta itemprop="name" content="Kubernetes_problem">
+<meta itemprop="description" content="kubernetes 故障检查策略">
+<meta itemprop="datePublished" content="2020-06-05T22:35:45&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-05T22:35:45&#43;08:00" />
+<meta itemprop="wordCount" content="196">
+
+
+
+<meta itemprop="keywords" content="docker,kubernetes," />
+  <meta property="og:title" content="Kubernetes_problem" />
+<meta property="og:description" content="kubernetes 故障检查策略" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vite.work/post/kubernetes_problem/" />
+<meta property="article:published_time" content="2020-06-05T22:35:45+08:00" />
+<meta property="article:modified_time" content="2020-06-05T22:35:45+08:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kubernetes_problem"/>
+<meta name="twitter:description" content="kubernetes 故障检查策略"/>
+
+  
+
+  <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+  
+    
+      <link rel="stylesheet" href="/css/normalize.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+      <link rel="stylesheet" href="/css/main.min.css">
+      <link rel="stylesheet" href="/css/add-on.css">
+    
+  
+  
+</head>
+
+  <body>
+    
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/">
+        
+          
+            post
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu">
+      
+        <a href="/" class="link"><i class="home">&nbsp;</i>首页</a>
+      
+        <a href="/post/" class="link"><i class="archives">&nbsp;</i>归档</a>
+      
+        <a href="/tags/" class="link"><i class="tags">&nbsp;</i>标签</a>
+      
+        <a href="/categories/" class="link"><i class="categories">&nbsp;</i>分类</a>
+      
+        <a href="/about/" class="link"><i class="">&nbsp;</i>关于</a>
+      
+      <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      
+
+    </menu>
+    
+
+    <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="lang-toggle" lang="zh-cn"><span class="flag-icon flag-icon-zh-cn" alt="zh-cn"></span></a>
+    <a href="#site-nav" class="nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="lang-menu" class="flyout-menu">
+  <a href="#" lang="zh-cn" class="active"><span class="flag-icon flag-icon-zh-cn" alt="zh-cn"></span></a>
+  
+    
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu">
+      <h1>Share Post</h1>
+      
+
+
+
+  
+        <a href="mailto:?subject=Check out this post by &amp;body=" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro">
+  <a href="/"><img src="/img/main/logo.jpg" class="circle" width="" alt="Hugo Future Imperfect Slim" /></a>
+  <header>
+    <h1>nice to meet you</h1>
+  </header>
+  <main>
+    <p>created  by <a href='https://blog.fucos.top/'>爱思考的程序员</a>.</p>
+  </main>
+  
+    <footer>
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/danny1144/danny1144" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:1490284462@qq.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        <article class="post">
+  <header>
+  <div class="title">
+    
+        <h2><a href="/post/kubernetes_problem/">Kubernetes_problem</a></h2>
+    
+    
+        <p>kubernetes 故障检查策略</p>
+    
+</div>
+  <div class="meta">
+    <time class="published" datetime="2020-06-05 22:35:45 &#43;0800 CST">
+      
+    </time>
+    <span class="author">dannyz</span>
+    
+        <p>1 </p>
+    
+  </div>
+</header>
+
+  <section id="social-share">
+    
+
+
+
+  
+        <a href="mailto:?subject=Check out this post by &amp;body=" target="_blank" class="share-btn email">
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+  </section>
+  
+
+  <div class="content">
+    <h2 id="k8s故障排除方法">K8S故障排除方法</h2>
+<h3 id="1查看pods哪些是有问题的runningg正常其他异常">1.查看pods哪些是有问题的，Runningg正常，其他异常；</h3>
+<pre><code>/opt/kubernetes/bin/kubectl get pods --all-namespaces -owide
+
+
+NAMESPACE NAME READY STATUS RESTARTS AGE IP NODE NOMINATED NODE
+
+default nginx-dbddb74b8-d78cd 1/1 Running 0 17m 172.17.90.3 192.168.18.148 &lt;none&gt;
+</code></pre><h3 id="2查看异常pod的详情">2.查看异常pod的详情</h3>
+<pre><code>/opt/kubernetes/bin/kubectl describe pods nginx-dbddb74b8-2hthr
+</code></pre><p><strong>我这边异常信息如下：</strong></p>
+<p>Warning FailedScheduling 32m (x2 over 32m) default-scheduler 0/2 nodes are available: 2 node(s) had taints that the pod didn&rsquo;t tolerate.</p>
+<p>解决办法：参考：https://github.com/kubernetes-sigs/kubespray/issues/2798</p>
+<h3 id="3查看异常服务的详情">3.查看异常服务的详情</h3>
+<pre><code>/opt/kubernetes/bin/kubectl describe services nginx
+</code></pre><h3 id="4查看集群node的状态">4.查看集群node的状态</h3>
+<pre><code>/opt/kubernetes/bin/kubectl get nodes -o wide
+
+NAME STATUS ROLES AGE VERSION INTERNAL-IP EXTERNAL-IP OS-IMAGE KERNEL-VERSION CONTAINER-RUNTIME
+
+192.168.18.147 NotReady &lt;none&gt; 62m v1.12.1 192.168.18.147 &lt;none&gt; CentOS Linux 7 (Core) 3.10.0-862.el7.x86_64 docker://18.9.5
+
+</code></pre><p>我这边是NotReady状态，经排查发现， node18.147上面的kubelet kube-proxy挂掉了，服务启来后就可以了</p>
+<h3 id="5查看node的详情">5.查看node的详情</h3>
+<pre><code>/opt/kubernetes/bin/kubectl describe node 192.168.18.147
+
+Warning FailedScheduling 32m (x2 over 32m) default-scheduler 0/2 nodes are available: 2 node(s) had taints that the pod didn't tolerate.
+</code></pre><p>这个的具体解决方法：</p>
+<p>我这边查看pod详情，Taints显示如下：</p>
+<p>Taints: node.kubernetes.io/unreachable:NoSchedule</p>
+<p>执下如下命令后即可</p>
+<pre><code>[root@master tmp]# /opt/kubernetes/bin/kubectl taint nodes --all node.kubernetes.io/unreachable-
+
+node/192.168.18.147 untainted
+
+node/192.168.18.148 untainted
+</code></pre><h3 id="6查看集群组件状态">6.查看集群组件状态</h3>
+<pre><code>/opt/kubernetes/bin/kubectl get cs
+
+NAME STATUS MESSAGE ERROR
+
+scheduler Healthy ok
+
+controller-manager Healthy ok
+
+etcd-1 Healthy {&quot;health&quot;:&quot;true&quot;}
+
+etcd-2 Healthy {&quot;health&quot;:&quot;true&quot;}
+
+etcd-0 Healthy {&quot;health&quot;:&quot;true&quot;}
+</code></pre><p>7.查看服务集群IP、端口、运行时长</p>
+<pre><code>/opt/kubernetes/bin/kubectl get svc
+
+NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE
+
+kubernetes ClusterIP 10.0.0.1 &lt;none&gt; 443/TCP 4h51m
+
+nginx NodePort 10.0.0.215 &lt;none&gt; 88:40675/TCP 92m
+</code></pre><p>在dashboard界面删除容器，发现无法删除。使用命令查看发现该pod一直处于terminating的状态</p>
+<p>Kubernetes强制删除一直处于Terminating状态的pod。</p>
+<p>1、使用命令获取pod的名字</p>
+<pre><code> kubectl get po -n NAMESPACE |grep Terminating
+</code></pre><p>2、使用kubectl中的强制删除命令</p>
+<pre><code>kubectl delete pod podName -n NAMESPACE --force --grace-period=0 ```</code></pre>
+  </div>
+  <footer>
+    <ul class="stats">
+  
+    
+    
+      <li class="categories">
+        <ul>
+          
+            
+            <li><a class="article-category-link" href="https://vite.work/categories/server">server</a></li>
+          
+        </ul>
+      </li>
+    
+  
+  
+    
+    
+      <li class="tags">
+        <ul>
+          
+            
+            <li><a class="article-category-link" href="https://vite.work/tags/docker">docker</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://vite.work/tags/kubernetes">kubernetes</a></li>
+          
+        </ul>
+      </li>
+    
+  
+</ul>
+
+  </footer>
+</article>
+<article class="post">
+  
+
+</article>
+<div class="pagination">
+  
+    <a href="/post/docker-desktop-kubernetes/" class="button big previous"><i class="fas fa-angle-left"></i> Docker Desktop Kubernetes</a>
+  
+  
+    <a href="/post/vue3_reactive/" class="button big next">Vue3_reactive <i class="fas fa-angle-right"></i></a>
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  <section id="recent-posts">
+    <header>
+      <h1></h1>
+    </header>
+    
+    <article class="mini-post">
+      <section>
+        
+
+      </section>
+      <header>
+        <h1><a href="/post/">Post</a></h1>
+        <time class="published" datetime=""></time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+
+      </section>
+      <header>
+        <h1><a href="/post/yarn-npm-error/">Yarn Npm Error</a></h1>
+        <time class="published" datetime=""></time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+
+      </section>
+      <header>
+        <h1><a href="/post/python_oracle/">Python_oracle</a></h1>
+        <time class="published" datetime=""></time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+
+      </section>
+      <header>
+        <h1><a href="/post/vue3_reactive/">Vue3_reactive</a></h1>
+        <time class="published" datetime=""></time>
+      </header>
+    </article>
+    
+    <article class="mini-post">
+      <section>
+        
+
+      </section>
+      <header>
+        <h1><a href="/post/kubernetes_problem/">Kubernetes_problem</a></h1>
+        <time class="published" datetime=""></time>
+      </header>
+    </article>
+    
+    
+      <a href="/blog/" class="button"></a>
+    
+  </section>
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories"></a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/server/">server<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/english/">english<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/front/">front<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/nodejs/">nodejs<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/python/">python<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/syntax-highlighting/">syntax-highlighting<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/vue/">vue<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/%E4%B8%AD%E6%96%87/">中文<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/">日本語<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  <section id="mini-bio">
+    <header>
+      <h1></h1>
+    </header>
+    <p>This theme was developed for Hugo static site generator.</p>
+    <footer>
+      <a href="/about" class="button"></a>
+    </footer>
+  </section>
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="social-icons">
+        
+
+        <li><a href="//github.com/danny1144/danny1144" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:1490284462@qq.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2020
+      
+        程序员 - 一个苦逼与快乐的源泉
+      
+    .
+    Powered by <a href="//gohugo.io" target="_blank" rel="noopener">Hugo</a>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  
+  <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  <script src=/js/util.js></script>
+  <script src=/js/main.js></script>
+  <script src=/js/add-on.js></script>
+  
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+    </div>
+  </body>
+</html>
