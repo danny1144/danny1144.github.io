@@ -1,33 +1,56 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>preview on 程序员 - 一个苦逼与快乐的源泉</title>
-    <link>https://danny1144.github.io/tags/preview/</link>
-    <description>Recent content in preview on 程序员 - 一个苦逼与快乐的源泉</description>
+    <title>preview on Aurora</title>
+    
+    
+    
+    <link>http://vite.work/tags/preview/</link>
+    <description>Recent content in preview on Aurora</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
+    <language>zh-Hans</language>
+    <copyright>苏ICP备18050258号</copyright>
     <lastBuildDate>Thu, 31 Aug 2017 15:43:48 +0800</lastBuildDate>
     
-	<atom:link href="https://danny1144.github.io/tags/preview/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://vite.work/tags/preview/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[English] Creating a New Theme</title>
-      <link>https://danny1144.github.io/post/english-preview/</link>
+      <link>http://vite.work/post/english-preview/</link>
       <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
       
-      <guid>https://danny1144.github.io/post/english-preview/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
+      <guid>http://vite.work/post/english-preview/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
+We&amp;rsquo;ll start with creating a new site with a very basic template.
+          
+        
+        </description>
     </item>
     
     <item>
       <title>[日本語] 敬語体系</title>
-      <link>https://danny1144.github.io/post/japanese-preview/</link>
+      <link>http://vite.work/post/japanese-preview/</link>
       <pubDate>Wed, 30 Aug 2017 01:53:34 +0800</pubDate>
       
-      <guid>https://danny1144.github.io/post/japanese-preview/</guid>
-      <description>日本語の敬語体系は、一般に、大きく尊敬語・謙譲語・丁寧語に分類される。文化審議会国語分科会は、2007年2月に「敬語の指針」を答申し、これに丁重語および美化語を含めた5分類を示している。
+      <guid>http://vite.work/post/japanese-preview/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          日本語の敬語体系は、一般に、大きく尊敬語・謙譲語・丁寧語に分類される。文化審議会国語分科会は、2007年2月に「敬語の指針」を答申し、これに丁重語および美化語を含めた5分類を示している。
  尊敬語 尊敬語は、動作の主体を高めることで、主体への敬意を表す言い方である。動詞に「お（ご）～になる」を付けた形、また、助動詞「（ら）れる」を付けた形などが用いられる。たとえば、動詞「取る」の尊敬形として、「（先生が）お取りになる」「（先生が）取られる」などが用いられる。
 語によっては、特定の尊敬語が対応するものもある。たとえば、「言う」の尊敬語は「おっしゃる」、「食べる」の尊敬語は「召し上がる」、「行く・来る・いる」の尊敬語は「いらっしゃる」である。
 謙譲語 謙譲語は、古代から基本的に動作の客体への敬意を表す言い方であり、現代では「動作の主体を低める」と解釈するほうがよい場合がある。動詞に「お～する」「お～いたします」（謙譲語＋丁寧語）をつけた形などが用いられる。たとえば、「取る」の謙譲形として、「お取りする」などが用いられる。
@@ -35,16 +58,27 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
 なお、「夜も更けてまいりました」の「まいり」など、謙譲表現のようでありながら、誰かを低めているわけではない表現がある。これは、「夜も更けてきた」という話題を丁重に表現することによって、聞き手への敬意を表すものである。宮地裕は、この表現に使われる語を、特に「丁重語」と称している[104][105]。丁重語にはほかに「いたし（マス）」「申し（マス）」「存じ（マス）」「小生」「小社」「弊社」などがある。文化審議会の「敬語の指針」でも、「明日から海外へまいります」の「まいり」のように、相手とは関りのない自分側の動作を表現する言い方を丁重語としている。
 丁寧語 丁寧語は、文末を丁寧にすることで、聞き手への敬意を表すものである。動詞・形容詞の終止形で終わる常体に対して、名詞・形容動詞語幹などに「です」を付けた形（「学生です」「きれいです」）や、動詞に「ます」をつけた形（「行きます」「分かりました」）等の丁寧語を用いた文体を敬体という。
 一般に、目上の人には丁寧語を用い、同等・目下の人には丁寧語を用いないといわれる。しかし、実際の言語生活に照らして考えれば、これは事実ではない。母が子を叱るとき、「お母さんはもう知りませんよ」と丁寧語を用いる場合ももある。丁寧語が用いられる多くの場合は、敬意や謝意の表現とされるが、、稀に一歩引いた心理的な距離をとろうとする場合もある。
-「お弁当」「ご飯」などの「お」「ご」も、広い意味では丁寧語に含まれるが、宮地裕は特に「美化語」と称して区別する[104][105]。相手への丁寧の意を示すというよりは、話し手が自分の言葉遣いに配慮した表現である。したがって、「お弁当食べようよ。」のように、丁寧体でない文でも美化語を用いることがある。文化審議会の「敬語の指針」でも「美化語」を設けている。</description>
+「お弁当」「ご飯」などの「お」「ご」も、広い意味では丁寧語に含まれるが、宮地裕は特に「美化語」と称して区別する[104][105]。相手への丁寧の意を示すというよりは、話し手が自分の言葉遣いに配慮した表現である。したがって、「お弁当食べようよ。」のように、丁寧体でない文でも美化語を用いることがある。文化審議会の「敬語の指針」でも「美化語」を設けている。
+          
+        
+        </description>
     </item>
     
     <item>
       <title>[中文] 《长恨歌》</title>
-      <link>https://danny1144.github.io/post/chinese-preview/</link>
+      <link>http://vite.work/post/chinese-preview/</link>
       <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
       
-      <guid>https://danny1144.github.io/post/chinese-preview/</guid>
-      <description>《长恨歌》是中国唐朝诗人白居易的一首长篇叙事诗。
+      <guid>http://vite.work/post/chinese-preview/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          《长恨歌》是中国唐朝诗人白居易的一首长篇叙事诗。
  第一段：贵妃受宠爱 汉皇重色思倾国，御宇多年求不得。杨家有女初长成，养在深闺人未识。
 天生丽质难自弃，一朝选在君王侧。回眸一笑百媚生，六宫粉黛无颜色。
 春寒赐浴华清池，温泉水滑洗凝脂。侍儿扶起娇无力，始是新承恩泽时。
@@ -75,19 +109,33 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
 唯将旧物表深情，钿合金钗寄将去。钗留一股合一扇，钗擘黄金合分钿。
 但教心似金钿坚，天上人间会相见。临别殷勤重寄词，词中有誓两心知。
 七月七日长生殿，夜半无人私语时。在天愿作比翼鸟，在地愿为连理枝。
-天长地久有时尽，此恨绵绵无绝期。</description>
+天长地久有时尽，此恨绵绵无绝期。
+          
+        
+        </description>
     </item>
     
     <item>
       <title>Syntax Highlighting</title>
-      <link>https://danny1144.github.io/post/syntax-highlighting/</link>
+      <link>http://vite.work/post/syntax-highlighting/</link>
       <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
       
-      <guid>https://danny1144.github.io/post/syntax-highlighting/</guid>
-      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;helloWorld&lt;/span&gt; () {
+      <guid>http://vite.work/post/syntax-highlighting/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;helloWorld&lt;/span&gt; () {
   &lt;span style=&#34;color:#a6e22e&#34;&gt;alert&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;)
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+          
+        
+        </description>
     </item>
     
   </channel>

@@ -1,212 +1,220 @@
-<!doctype html>
-<html lang="zh-cn">
+<!DOCTYPE html>
+<html lang="en">
   <head>
-  <meta charset="utf-8">
-<title>Vue3_reactive - 程序员 - 一个苦逼与快乐的源泉</title>
-<meta name="description" content="windows10 docker-desktop安装kuberetes">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+      <title>
+        Vue3_reactive ::
+        Aurora — 🎈🎈🎈
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="vue3.0 Beta发布，顺便来看看Vue3 的响应式和以前有什么区别 正文 大家都知道，Vue2 里的响应式其实有点像是一个半完全体，对于对象上新增的属性无能为力，对于数组则需要拦截它的原型方法来实现响应式。
+举个例子：
+let vm = new Vue({data() {a: 1}})// ❌ oops，没反应！vm.b = 2 let vm = new Vue({data() {a: 1},watch: {b() {console.log(&#39;change !!&#39;)}}})// ❌ oops，没反应！vm.b = 2这种时候，Vue 提供了一个 api：this.$set，来使得新增的属性也拥有响应式的效果。
+但是对于很多新手来说，很多时候需要小心翼翼的去判断到底什么情况下需要用 $set，什么时候可以直接触发响应式。
+总之，在 Vue3 中，这些都将成为过去。本篇文章会带你仔细讲解，proxy 到底会给 Vue3 带来怎么样的便利。并且会从源码级别，告诉你这些都是如何实现的。
+响应式仓库 Vue3 不同于 Vue2 也体现在源码结构上，Vue3 把耦合性比较低的包分散在 packages 目录下单独发布成 npm 包。这也是目前很流行的一种大型项目管理方式 Monorepo。"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="http://vite.work/post/vue3_reactive/" />
 
 
 
-  <meta name="generator" content="Hugo 0.71.1" />
-  <meta itemprop="name" content="Vue3_reactive">
-<meta itemprop="description" content="windows10 docker-desktop安装kuberetes">
-<meta itemprop="datePublished" content="2020-06-08T14:39:00&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-08T14:39:00&#43;08:00" />
-<meta itemprop="wordCount" content="1146">
 
 
+<link rel="stylesheet" href="http://vite.work/assets/style.css" />
 
-<meta itemprop="keywords" content="front,vue," />
-  <meta property="og:title" content="Vue3_reactive" />
-<meta property="og:description" content="windows10 docker-desktop安装kuberetes" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://danny1144.github.io/post/vue3_reactive/" />
-<meta property="article:published_time" content="2020-06-08T14:39:00+08:00" />
-<meta property="article:modified_time" content="2020-06-08T14:39:00+08:00" />
+<link rel="stylesheet" href="http://vite.work/style.css" />
 
-  <meta name="twitter:card" content="summary"/>
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="http://vite.work/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="http://vite.work/img/favicon.png" />
+
+
+<link href="http://vite.work/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="http://vite.work/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="http://vite.work/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="http://vite.work/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="http://vite.work/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="http://vite.work/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Vue3_reactive"/>
 <meta name="twitter:description" content="windows10 docker-desktop安装kuberetes"/>
 
-  
 
-  <link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
-  
-    
-      <link rel="stylesheet" href="/css/normalize.css">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
-      <link rel="stylesheet" href="/css/main.min.css">
-      <link rel="stylesheet" href="/css/add-on.css">
-    
-  
-  
-</head>
 
-  <body>
+<meta property="og:title" content="Vue3_reactive" />
+<meta property="og:description" content="windows10 docker-desktop安装kuberetes" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://vite.work/post/vue3_reactive/" />
+<meta property="article:published_time" content="2020-06-08T14:39:00+08:00" />
+<meta property="article:modified_time" content="2020-06-08T14:39:00+08:00" /><meta property="og:site_name" content="Aurora" />
+
+
+
+
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="https://vite.work"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Aurora</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
     
-<header id="site-header">
-  <nav id="site-nav">
-    <h1 class="nav-title">
-      <a href="/">
+      
         
-          
-            post
-          
+          <li><a href="/about/">关于</a></li>
         
-      </a>
-    </h1>
-    <menu id="site-nav-menu" class="flyout-menu">
       
-        <a href="/" class="link"><i class="home">&nbsp;</i>首页</a>
+        
+          <li><a href="/categories">Categories</a></li>
+        
       
-        <a href="/post/" class="link"><i class="archives">&nbsp;</i>归档</a>
       
-        <a href="/tags/" class="link"><i class="tags">&nbsp;</i>标签</a>
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            更多
+            <span class="menu__sub-inner-more-trigger-icon"
+              ><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span
+            >
+          </li>
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/tags">Tags</a></li>
+              
+            
+          </ul>
+        </ul>
       
-        <a href="/categories/" class="link"><i class="categories">&nbsp;</i>分类</a>
       
-        <a href="/about/" class="link"><i class="">&nbsp;</i>关于</a>
-      
-      <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
-      
+  </ul>
 
-    </menu>
+  <ul class="menu__inner menu__inner--mobile">
     
-
-    <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
-    <a href="#lang-menu" class="lang-toggle" lang="zh-cn"><span class="flag-icon flag-icon-zh-cn" alt="zh-cn"></span></a>
-    <a href="#site-nav" class="nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
-  </nav>
-  <menu id="lang-menu" class="flyout-menu">
-  <a href="#" lang="zh-cn" class="active"><span class="flag-icon flag-icon-zh-cn" alt="zh-cn"></span></a>
-  
-    
+      
+        <li><a href="/about/">关于</a></li>
       
     
-  
-</menu>
-
-  
-    <menu id="share-menu" class="flyout-menu">
-      <h1>Share Post</h1>
       
+        <li><a href="/categories">Categories</a></li>
+      
+    
+      
+        <li><a href="/tags">Tags</a></li>
+      
+    
+  </ul>
+</nav>
 
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
 
-
-  
-        <a href="mailto:?subject=Check out this post by &amp;body=" target="_blank" class="share-btn email">
-          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
-        </a>
-  
-
-
-    </menu>
-  
+      </span>
+    </span>
+  </span>
 </header>
 
-    <div id="wrapper">
-      <section id="site-intro">
-  <a href="/"><img src="/img/main/logo.jpg" class="circle" width="" alt="Hugo Future Imperfect Slim" /></a>
-  <header>
-    <h1>nice to meet you</h1>
-  </header>
-  <main>
-    <p>created  by <a href='https://blog.fucos.top/'>爱思考的程序员</a>.</p>
-  </main>
-  
-    <footer>
-      <ul class="social-icons">
+
+      <div class="content">
         
-
-        <li><a href="//github.com/danny1144/danny1144" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li><a href="mailto:1490284462@qq.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
-
-      </ul>
-    </footer>
   
-</section>
+  
 
-      <main id="site-main">
-        <article class="post">
-  <header>
-  <div class="title">
-    
-        <h2><a href="/post/vue3_reactive/">Vue3_reactive</a></h2>
-    
-    
-        <p>windows10 docker-desktop安装kuberetes</p>
-    
-</div>
-  <div class="meta">
-    <time class="published" datetime="2020-06-08 14:39:00 &#43;0800 CST">
+  <div class="post">
+    <h1 class="post-title">Vue3_reactive</h1>
+    <div class="post-meta">
       
-    </time>
-    <span class="author">dannyz</span>
+        <span class="post-date">
+          2020-06-08
+        </span>
+
+        
+          
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by dannyz</span
+        >
+
+
+      
+    </div>
+
     
-        <p>6 </p>
+      <span class="post-tags">
+        
+          <a href="http://vite.work/tags/front/">#front</a>&nbsp;
+        
+          <a href="http://vite.work/tags/vue/">#vue</a>&nbsp;
+        
+      </span>
     
-  </div>
-</header>
 
-  <section id="social-share">
     
 
-
-
-  
-        <a href="mailto:?subject=Check out this post by &amp;body=" target="_blank" class="share-btn email">
-          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
-        </a>
-  
-
-
-  </section>
-  
-
-  <div class="content">
-    <h2 id="vue30-beta发布顺便来看看vue3-的响应式和以前有什么区别">vue3.0 Beta发布，顺便来看看Vue3 的响应式和以前有什么区别</h2>
+    <div class="post-content">
+      
+      <h2 id="vue30-beta发布顺便来看看vue3-的响应式和以前有什么区别">vue3.0 Beta发布，顺便来看看Vue3 的响应式和以前有什么区别</h2>
 <h2 id="正文">正文</h2>
 <p>大家都知道，Vue2 里的响应式其实有点像是一个半完全体，对于对象上新增的属性无能为力，对于数组则需要拦截它的原型方法来实现响应式。</p>
 <p>举个例子：</p>
@@ -600,272 +608,64 @@ obj.a = 1
 <h3 id="参考资料">参考资料</h3>
 <p>[1]@vue/rectivity: <em><a href="https://github.com/vuejs/vue-next/tree/master/packages/reactivity">https://github.com/vuejs/vue-next/tree/master/packages/reactivity</a></em>[2]轻松的集成进 React: <em><a href="https://juejin.im/post/5e70970af265da576429aada">https://juejin.im/post/5e70970af265da576429aada</a></em>[3]陷阱操作符: <em><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler</a></em>[4]Reflect: <em><a href="https://es6.ruanyifeng.com/?search=reflect&amp;x=0&amp;y=0#docs/reflect">https://es6.ruanyifeng.com/?search=reflect&amp;x=0&amp;y=0#docs/reflect</a></em>[5]源码地址: <em><a href="https://github.com/vuejs/vue-next/blob/0764c33d3da8c06d472893a4e451e33394726a42/packages/reactivity/src/effect.ts#L214-L219">https://github.com/vuejs/vue-next/blob/0764c33d3da8c06d472893a4e451e33394726a42/packages/reactivity/src/effect.ts#L214-L219</a></em>[6]observer-util: <em><a href="https://github.com/nx-js/observer-util">https://github.com/nx-js/observer-util</a></em>[7]带你彻底搞懂Vue3的Proxy响应式原理！TypeScript从零实现基于Proxy的响应式库。: <em><a href="https://juejin.im/post/5e21196fe51d454d523be084">https://juejin.im/post/5e21196fe51d454d523be084</a></em>[8]带你彻底搞懂Vue3的Proxy响应式原理！基于函数劫持实现Map和Set的响应式: <em><a href="https://juejin.im/post/5e23b20f51882510073eb571">https://juejin.im/post/5e23b20f51882510073eb571</a></em>[9]精读《Vue3.0 Function API》: <em><a href="https://juejin.im/post/5d1955e3e51d4556d86c7b09">https://juejin.im/post/5d1955e3e51d4556d86c7b09</a></em>[10]what-is-a-receiver-in-javascript: <em><a href="https://stackoverflow.com/questions/37563495/what-is-a-receiver-in-javascript/37565299#37565299">https://stackoverflow.com/questions/37563495/what-is-a-receiver-in-javascript/37565299#37565299</a></em></p>
 
-  </div>
-  <footer>
-    <ul class="stats">
-  
-    
-    
-      <li class="categories">
-        <ul>
-          
-            
-            <li><a class="article-category-link" href="https://danny1144.github.io/categories/vue">vue</a></li>
-          
-        </ul>
-      </li>
-    
-  
-  
-    
-    
-      <li class="tags">
-        <ul>
-          
-            
-            <li><a class="article-category-link" href="https://danny1144.github.io/tags/front">front</a></li>
-          
-            
-            <li><a class="article-category-link" href="https://danny1144.github.io/tags/vue">vue</a></li>
-          
-        </ul>
-      </li>
-    
-  
-</ul>
-
-  </footer>
-</article>
-<article class="post">
-  
-
-</article>
-<div class="pagination">
-  
-    <a href="/post/kubernetes_problem/" class="button big previous"><i class="fas fa-angle-left"></i> Kubernetes_problem</a>
-  
-  
-    <a href="/post/python_oracle/" class="button big next">Python_oracle <i class="fas fa-angle-right"></i></a>
-  
-</div>
-
-
-      </main>
-      <section id="site-sidebar">
-  <section id="recent-posts">
-    <header>
-      <h1></h1>
-    </header>
-    
-    <article class="mini-post">
-      <section>
-        
-
-      </section>
-      <header>
-        <h1><a href="/post/">Post</a></h1>
-        <time class="published" datetime=""></time>
-      </header>
-    </article>
-    
-    <article class="mini-post">
-      <section>
-        
-
-      </section>
-      <header>
-        <h1><a href="/post/yarn-npm-error/">Yarn Npm Error</a></h1>
-        <time class="published" datetime=""></time>
-      </header>
-    </article>
-    
-    <article class="mini-post">
-      <section>
-        
-
-      </section>
-      <header>
-        <h1><a href="/post/python_oracle/">Python_oracle</a></h1>
-        <time class="published" datetime=""></time>
-      </header>
-    </article>
-    
-    <article class="mini-post">
-      <section>
-        
-
-      </section>
-      <header>
-        <h1><a href="/post/vue3_reactive/">Vue3_reactive</a></h1>
-        <time class="published" datetime=""></time>
-      </header>
-    </article>
-    
-    <article class="mini-post">
-      <section>
-        
-
-      </section>
-      <header>
-        <h1><a href="/post/kubernetes_problem/">Kubernetes_problem</a></h1>
-        <time class="published" datetime=""></time>
-      </header>
-    </article>
-    
-    
-      <a href="/blog/" class="button"></a>
-    
-  </section>
-
-  
-    
-      <section id="categories">
-        <header>
-          <h1><a href="/categories"></a></h1>
-        </header>
-        <ul>
-          
-            
-          
-          
-          <li>
-            
-              <a href="/categories/server/">server<span class="count">2</span></a>
-            
-          
-          <li>
-            
-              <a href="/categories/english/">english<span class="count">1</span></a>
-            
-          
-          <li>
-            
-              <a href="/categories/front/">front<span class="count">1</span></a>
-            
-          
-          <li>
-            
-              <a href="/categories/nodejs/">nodejs<span class="count">1</span></a>
-            
-          
-          <li>
-            
-              <a href="/categories/python/">python<span class="count">1</span></a>
-            
-          
-          <li>
-            
-              <a href="/categories/syntax-highlighting/">syntax-highlighting<span class="count">1</span></a>
-            
-          
-          <li>
-            
-              <a href="/categories/vue/">vue<span class="count">1</span></a>
-            
-          
-          <li>
-            
-              <a href="/categories/%E4%B8%AD%E6%96%87/">中文<span class="count">1</span></a>
-            
-          
-          <li>
-            
-              <a href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/">日本語<span class="count">1</span></a>
-            
-          
-          </li>
-        </ul>
-      </section>
-    
-  
-
-  <section id="mini-bio">
-    <header>
-      <h1></h1>
-    </header>
-    <p>This theme was developed for Hugo static site generator.</p>
-    <footer>
-      <a href="/about" class="button"></a>
-    </footer>
-  </section>
-</section>
-
-      <footer id="site-footer">
-  
-      <ul class="social-icons">
-        
-
-        <li><a href="//github.com/danny1144/danny1144" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<li><a href="mailto:1490284462@qq.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
-
-      </ul>
-  
-  <p class="copyright">
-    
-      &copy; 2020
-      
-        程序员 - 一个苦逼与快乐的源泉
-      
-    .
-    Powered by <a href="//gohugo.io" target="_blank" rel="noopener">Hugo</a>
-  </p>
-</footer>
-<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
-
-      
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  
-  <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-
-
-  
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
-  <script src=/js/util.js></script>
-  <script src=/js/main.js></script>
-  <script src=/js/add-on.js></script>
-  
-
-<script>hljs.initHighlightingOnLoad();</script>
-
-
     </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >其他文章</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="http://vite.work/post/python_oracle/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Python_oracle</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="http://vite.work/post/kubernetes_problem/">
+                  <span class="button__text">Kubernetes_problem</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">苏ICP备18050258号</div>
+      
+  </div>
+</footer>
+
+<script src="http://vite.work/assets/main.js"></script>
+<script src="http://vite.work/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
   </body>
 </html>

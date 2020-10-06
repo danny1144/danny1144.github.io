@@ -1,120 +1,56 @@
-# For a description of these parameters, please visit the theme wiki.
-# https://github.com/pacollins/hugo-future-imperfect-slim/wiki/config.toml
-baseurl                 = "https://danny1144.github.io/"
-defaultContentLanguage = "zh-cn"                             # en / zh-cn / ... (This field determines which i18n file to use)
-title = "程序员 - 一个苦逼与快乐的源泉"
-theme                   = "hugo-future-imperfect-slim"
-paginate                = 3
-disqusShortname         = ""
-googleAnalytics         = ""
-pluralizeListTitles     = false
-disableLanguages        = []
-
-[markup.goldmark.renderer]
-  unsafe                = true
-
-[outputs]
-  home                  = ["html", "json"]
+baseurl = "http://vite.work"
+languageCode = "zh-Hans"
+theme = "hello-friend"
+paginate = 8
 
 [params]
-  enableCDN             = false
-  cssFiles              = ["default"]
-  jsFiles               = ["default"]
-  highlightjs           = true
-  highlightjsTheme      = ""
-  highlightjsLang       = []
-  viewMorePostsLink     = "/blog/"
-  readingTime           = true
-  imageStretch          = ""
-  removeBlur            = false
-  socialShare           = [  "email"]
-  hideEmptyStats        = false
+  # dir name of your blog content (default is `content/posts`)
+  contentTypeName = "post"
+  # "light" or "dark"
+  defaultTheme = "light"
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 2
+  # Enable to show reading time in minutes for posts
+  showReadingTime = false
+[languages]
+  [languages.en]
+    title = "Aurora"
+    subtitle = "🎈🎈🎈"
+    keywords = ""
+    copyright = "苏ICP备18050258号"
+    menuMore = "更多"
+    writtenBy = "Written by"
+    readMore = "阅读更多"
+    readOtherPosts = "其他文章"
+    newerPosts = "上一页"
+    olderPosts = "下一页"
+    minuteReadingTime = "阅读时间"
+    dateFormatSingle = "2006-01-02"
+    dateFormatList = "2006-01-02"
 
-  [params.meta]
-    description         = "A theme by HTML5 UP, ported by Julio Pescador. Slimmed and enhanced by Patrick Collins. Multilingual by StatnMap. Powered by Hugo."
-    author              = "HTML5UP and Hugo"
-    favicon             = false
-    svg                 = true
-    faviconVersion      = "1"
-    msColor             = "#ffffff"
-    iOSColor            = "#ffffff"
+    [languages.en.params.logo]
+      logoText = "Aurora"
+      logoHomeLink = "https://vite.work"
+    # or
+    #
+    # path = "/img/your-example-logo.svg"
+    # alt = "Your example logo alt text"
 
-  [params.header]
-    navbarTitle         = "Future Imperfect"
-    dynamicTitles       = true
-    searchMenu          = true
-    shareMenu           = true
-    languageMenu        = true
-
-  [params.intro]
-    header                = "nice to meet you"
-    paragraph             = "created  by <a href='https://blog.fucos.top/'>爱思考的程序员</a>."
-    rssIntro              = true
-    socialIntro           = true
-    hideWhenSingleColumn  = false
-    alwaysOnHomepage      = false
-
-    [params.intro.pic]
-      src                 = "img/main/logo.jpg"
-      shape               = "circle"
-      width               = ""
-      alt                 = "Hugo Future Imperfect Slim"
-
-  [params.sidebar]
-    about               = "This theme was developed for Hugo static site generator."
-    postAmount          = 5
-    categories          = true
-    categoriesByCount   = true
-
-  [params.footer]
-    rssFooter           = true
-    socialFooter        = true
-
-  [params.staticman]
-    enabled             = true
-    api                 = ""  # No Trailing Slash
-    gitProvider         = ""
-    username            = ""
-    repo                = ""
-    branch              = ""
-
-    [params.staticman.recaptcha]
-      siteKey           = ""
-      encryptedKey      = ""
-
-[menu]
-
-  
-[[menu.main]]             # config your menu              # 配置目录
-  name = "首页"
-  weight = 10
-  identifier = "home"
-  url = "/"
-[[menu.main]]
-  name = "归档"
-  weight = 20
-  identifier = "archives"
-  url = "/post/"
-[[menu.main]]
-  name = "标签"
-  weight = 30
-  identifier = "tags"
-  url = "/tags/"
-[[menu.main]]
-  name = "分类"
-  weight = 40
-  identifier = "categories"
-  url = "/categories/"
-
-
-[Languages]
-
-  [Languages.zh-CN]
-    LanguageCode        = "zh-CN"
-    LanguageName        = "中文"
-    weight              = 7
-  
-[social]
-  # Coding Communities
-  github                = "danny1144/danny1144"
-  email                 = "1490284462@qq.com"
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "tags"
+        name = "Tags"
+        url = "/tags"
+      [[languages.en.menu.main]]
+        identifier = "categories"
+        name = "Categories"
+        url = "/categories"
+# 内嵌html配置       
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
