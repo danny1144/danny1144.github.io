@@ -5,22 +5,22 @@
     
     
     
-    <link>http://vite.work/tags/preview/</link>
+    <link>https://vite.work/tags/preview/</link>
     <description>Recent content in preview on Aurora</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>苏ICP备18050258号</copyright>
     <lastBuildDate>Thu, 31 Aug 2017 15:43:48 +0800</lastBuildDate>
     
-	<atom:link href="http://vite.work/tags/preview/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vite.work/tags/preview/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>[English] Creating a New Theme</title>
-      <link>http://vite.work/post/english-preview/</link>
+      <link>https://vite.work/post/english-preview/</link>
       <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
       
-      <guid>http://vite.work/post/english-preview/</guid>
+      <guid>https://vite.work/post/english-preview/</guid>
       <description>
         
           
@@ -38,10 +38,10 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.
     
     <item>
       <title>[日本語] 敬語体系</title>
-      <link>http://vite.work/post/japanese-preview/</link>
+      <link>https://vite.work/post/japanese-preview/</link>
       <pubDate>Wed, 30 Aug 2017 01:53:34 +0800</pubDate>
       
-      <guid>http://vite.work/post/japanese-preview/</guid>
+      <guid>https://vite.work/post/japanese-preview/</guid>
       <description>
         
           
@@ -66,10 +66,10 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.
     
     <item>
       <title>[中文] 《长恨歌》</title>
-      <link>http://vite.work/post/chinese-preview/</link>
+      <link>https://vite.work/post/chinese-preview/</link>
       <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
       
-      <guid>http://vite.work/post/chinese-preview/</guid>
+      <guid>https://vite.work/post/chinese-preview/</guid>
       <description>
         
           
@@ -117,10 +117,10 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.
     
     <item>
       <title>Syntax Highlighting</title>
-      <link>http://vite.work/post/syntax-highlighting/</link>
+      <link>https://vite.work/post/syntax-highlighting/</link>
       <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
       
-      <guid>http://vite.work/post/syntax-highlighting/</guid>
+      <guid>https://vite.work/post/syntax-highlighting/</guid>
       <description>
         
           

@@ -5,22 +5,22 @@
     
     
     
-    <link>http://vite.work/tags/kubernetes/</link>
+    <link>https://vite.work/tags/kubernetes/</link>
     <description>Recent content in kubernetes on Aurora</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>苏ICP备18050258号</copyright>
     <lastBuildDate>Fri, 05 Jun 2020 22:35:45 +0800</lastBuildDate>
     
-	<atom:link href="http://vite.work/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vite.work/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Kubernetes_problem</title>
-      <link>http://vite.work/post/kubernetes_problem/</link>
+      <link>https://vite.work/post/kubernetes_problem/</link>
       <pubDate>Fri, 05 Jun 2020 22:35:45 +0800</pubDate>
       
-      <guid>http://vite.work/post/kubernetes_problem/</guid>
+      <guid>https://vite.work/post/kubernetes_problem/</guid>
       <description>
         
           
@@ -37,10 +37,10 @@
     
     <item>
       <title>Docker Desktop Kubernetes</title>
-      <link>http://vite.work/post/docker-desktop-kubernetes/</link>
+      <link>https://vite.work/post/docker-desktop-kubernetes/</link>
       <pubDate>Fri, 05 Jun 2020 15:31:54 +0800</pubDate>
       
-      <guid>http://vite.work/post/docker-desktop-kubernetes/</guid>
+      <guid>https://vite.work/post/docker-desktop-kubernetes/</guid>
       <description>
         
           

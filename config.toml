@@ -1,4 +1,4 @@
-baseurl = "http://vite.work"
+baseurl = "https://vite.work"
 languageCode = "zh-Hans"
 theme = "hello-friend"
 paginate = 8
