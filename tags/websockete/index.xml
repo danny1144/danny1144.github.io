@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>websockete on 程序员 - 一个苦逼与快乐的源泉</title>
-    <link>https://vite.work/tags/websockete/</link>
+    <link>https://danny1144.github.io/tags/websockete/</link>
     <description>Recent content in websockete on 程序员 - 一个苦逼与快乐的源泉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Fri, 05 Jun 2020 14:54:09 +0800</lastBuildDate>
     
-	<atom:link href="https://vite.work/tags/websockete/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://danny1144.github.io/tags/websockete/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Websocket</title>
-      <link>https://vite.work/post/websocket/</link>
+      <link>https://danny1144.github.io/post/websocket/</link>
       <pubDate>Fri, 05 Jun 2020 14:54:09 +0800</pubDate>
       
-      <guid>https://vite.work/post/websocket/</guid>
+      <guid>https://danny1144.github.io/post/websocket/</guid>
       <description>简介 WebSocket 协议在2008年诞生，2011年成为国际标准。所有浏览器都已经支持了。
 它的最大特点就是，服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息，是真正的双向平等对话，属于服务器推送技术的一种。WebSocket 允许服务器端与客户端进行全双工（full-duplex）的通信。举例来说，HTTP 协议有点像发电子邮件，发出后必须等待对方回信；WebSocket 则是像打电话，服务器端和客户端可以同时向对方发送数据，它们之间存着一条持续打开的数据通道。
 其他特点包括：
