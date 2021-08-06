@@ -1,4 +1,4 @@
-baseurl = "https://vite.work"
+baseurl = "https://danny1144.github.io/"
 languageCode = "zh-Hans"
 theme = "hello-friend"
 paginate = 8
@@ -30,7 +30,7 @@ paginate = 8
 
     [languages.en.params.logo]
       logoText = "Aurora"
-      logoHomeLink = "https://vite.work"
+      logoHomeLink = "https://danny1144.github.io/"
     # or
     #
     # path = "/img/your-example-logo.svg"
