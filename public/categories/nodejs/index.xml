@@ -2,37 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>nodejs on Aurora</title>
-    
-    
-    
-    <link>https://vite.work/categories/nodejs/</link>
+    <link>https://danny1144.github.io/categories/nodejs/</link>
     <description>Recent content in nodejs on Aurora</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>苏ICP备18050258号</copyright>
-    <lastBuildDate>Tue, 06 Oct 2020 19:57:05 +0800</lastBuildDate>
-    
-	<atom:link href="https://vite.work/categories/nodejs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 06 Oct 2020 19:57:05 +0800</lastBuildDate><atom:link href="https://danny1144.github.io/categories/nodejs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Yarn Npm Error</title>
-      <link>https://vite.work/post/yarn-npm-error/</link>
+      <link>https://danny1144.github.io/post/yarn-npm-error/</link>
       <pubDate>Tue, 06 Oct 2020 19:57:05 +0800</pubDate>
       
-      <guid>https://vite.work/post/yarn-npm-error/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          npm or yarn 安装错误集合
-          
-        
-        </description>
+      <guid>https://danny1144.github.io/post/yarn-npm-error/</guid>
+      <description>npm or yarn 包校验失败 npm 和 yarn 缓存清理 npm cache clean —force yarn cache clean </description>
     </item>
     
   </channel>

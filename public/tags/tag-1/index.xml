@@ -2,34 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tag-1 on Aurora</title>
-    
-    
-    
-    <link>https://vite.work/tags/tag-1/</link>
+    <link>https://danny1144.github.io/tags/tag-1/</link>
     <description>Recent content in tag-1 on Aurora</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>苏ICP备18050258号</copyright>
-    <lastBuildDate>Wed, 30 Aug 2017 01:37:56 +0800</lastBuildDate>
-    
-	<atom:link href="https://vite.work/tags/tag-1/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 30 Aug 2017 01:37:56 +0800</lastBuildDate><atom:link href="https://danny1144.github.io/tags/tag-1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[中文] 《长恨歌》</title>
-      <link>https://vite.work/post/chinese-preview/</link>
+      <link>https://danny1144.github.io/post/chinese-preview/</link>
       <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
       
-      <guid>https://vite.work/post/chinese-preview/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          《长恨歌》是中国唐朝诗人白居易的一首长篇叙事诗。
+      <guid>https://danny1144.github.io/post/chinese-preview/</guid>
+      <description>《长恨歌》是中国唐朝诗人白居易的一首长篇叙事诗。
  第一段：贵妃受宠爱 汉皇重色思倾国，御宇多年求不得。杨家有女初长成，养在深闺人未识。
 天生丽质难自弃，一朝选在君王侧。回眸一笑百媚生，六宫粉黛无颜色。
 春寒赐浴华清池，温泉水滑洗凝脂。侍儿扶起娇无力，始是新承恩泽时。
@@ -60,10 +45,7 @@
 唯将旧物表深情，钿合金钗寄将去。钗留一股合一扇，钗擘黄金合分钿。
 但教心似金钿坚，天上人间会相见。临别殷勤重寄词，词中有誓两心知。
 七月七日长生殿，夜半无人私语时。在天愿作比翼鸟，在地愿为连理枝。
-天长地久有时尽，此恨绵绵无绝期。
-          
-        
-        </description>
+天长地久有时尽，此恨绵绵无绝期。</description>
     </item>
     
   </channel>
