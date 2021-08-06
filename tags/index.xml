@@ -2,157 +2,157 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Aurora</title>
-    <link>https://vite.work/tags/</link>
+    <link>https://danny1144.github.io/tags/</link>
     <description>Recent content in Tags on Aurora</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>苏ICP备18050258号</copyright>
     <lastBuildDate>Tue, 06 Oct 2020 19:57:05 +0800</lastBuildDate>
     
-	<atom:link href="https://vite.work/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://danny1144.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>front</title>
-      <link>https://vite.work/tags/front/</link>
+      <link>https://danny1144.github.io/tags/front/</link>
       <pubDate>Tue, 06 Oct 2020 19:57:05 +0800</pubDate>
       
-      <guid>https://vite.work/tags/front/</guid>
+      <guid>https://danny1144.github.io/tags/front/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vue</title>
-      <link>https://vite.work/tags/vue/</link>
+      <link>https://danny1144.github.io/tags/vue/</link>
       <pubDate>Tue, 06 Oct 2020 19:57:05 +0800</pubDate>
       
-      <guid>https://vite.work/tags/vue/</guid>
+      <guid>https://danny1144.github.io/tags/vue/</guid>
       <description></description>
     </item>
     
     <item>
       <title>backend</title>
-      <link>https://vite.work/tags/backend/</link>
+      <link>https://danny1144.github.io/tags/backend/</link>
       <pubDate>Wed, 10 Jun 2020 16:34:21 +0800</pubDate>
       
-      <guid>https://vite.work/tags/backend/</guid>
+      <guid>https://danny1144.github.io/tags/backend/</guid>
       <description></description>
     </item>
     
     <item>
       <title>server</title>
-      <link>https://vite.work/tags/server/</link>
+      <link>https://danny1144.github.io/tags/server/</link>
       <pubDate>Wed, 10 Jun 2020 16:34:21 +0800</pubDate>
       
-      <guid>https://vite.work/tags/server/</guid>
+      <guid>https://danny1144.github.io/tags/server/</guid>
       <description></description>
     </item>
     
     <item>
       <title>docker</title>
-      <link>https://vite.work/tags/docker/</link>
+      <link>https://danny1144.github.io/tags/docker/</link>
       <pubDate>Fri, 05 Jun 2020 22:35:45 +0800</pubDate>
       
-      <guid>https://vite.work/tags/docker/</guid>
+      <guid>https://danny1144.github.io/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kubernetes</title>
-      <link>https://vite.work/tags/kubernetes/</link>
+      <link>https://danny1144.github.io/tags/kubernetes/</link>
       <pubDate>Fri, 05 Jun 2020 22:35:45 +0800</pubDate>
       
-      <guid>https://vite.work/tags/kubernetes/</guid>
+      <guid>https://danny1144.github.io/tags/kubernetes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>websockete</title>
-      <link>https://vite.work/tags/websockete/</link>
+      <link>https://danny1144.github.io/tags/websockete/</link>
       <pubDate>Fri, 05 Jun 2020 14:54:09 +0800</pubDate>
       
-      <guid>https://vite.work/tags/websockete/</guid>
+      <guid>https://danny1144.github.io/tags/websockete/</guid>
       <description></description>
     </item>
     
     <item>
       <title>English</title>
-      <link>https://vite.work/tags/english/</link>
+      <link>https://danny1144.github.io/tags/english/</link>
       <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
       
-      <guid>https://vite.work/tags/english/</guid>
+      <guid>https://danny1144.github.io/tags/english/</guid>
       <description></description>
     </item>
     
     <item>
       <title>preview</title>
-      <link>https://vite.work/tags/preview/</link>
+      <link>https://danny1144.github.io/tags/preview/</link>
       <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
       
-      <guid>https://vite.work/tags/preview/</guid>
+      <guid>https://danny1144.github.io/tags/preview/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tag-2</title>
-      <link>https://vite.work/tags/tag-2/</link>
+      <link>https://danny1144.github.io/tags/tag-2/</link>
       <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
       
-      <guid>https://vite.work/tags/tag-2/</guid>
+      <guid>https://danny1144.github.io/tags/tag-2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tag-4</title>
-      <link>https://vite.work/tags/tag-4/</link>
+      <link>https://danny1144.github.io/tags/tag-4/</link>
       <pubDate>Wed, 30 Aug 2017 01:53:34 +0800</pubDate>
       
-      <guid>https://vite.work/tags/tag-4/</guid>
+      <guid>https://danny1144.github.io/tags/tag-4/</guid>
       <description></description>
     </item>
     
     <item>
       <title>日本語</title>
-      <link>https://vite.work/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E/</link>
+      <link>https://danny1144.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E/</link>
       <pubDate>Wed, 30 Aug 2017 01:53:34 +0800</pubDate>
       
-      <guid>https://vite.work/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E/</guid>
+      <guid>https://danny1144.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tag-1</title>
-      <link>https://vite.work/tags/tag-1/</link>
+      <link>https://danny1144.github.io/tags/tag-1/</link>
       <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
       
-      <guid>https://vite.work/tags/tag-1/</guid>
+      <guid>https://danny1144.github.io/tags/tag-1/</guid>
       <description></description>
     </item>
     
     <item>
       <title>中文</title>
-      <link>https://vite.work/tags/%E4%B8%AD%E6%96%87/</link>
+      <link>https://danny1144.github.io/tags/%E4%B8%AD%E6%96%87/</link>
       <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
       
-      <guid>https://vite.work/tags/%E4%B8%AD%E6%96%87/</guid>
+      <guid>https://danny1144.github.io/tags/%E4%B8%AD%E6%96%87/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Syntax Highlighting</title>
-      <link>https://vite.work/tags/syntax-highlighting/</link>
+      <link>https://danny1144.github.io/tags/syntax-highlighting/</link>
       <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
       
-      <guid>https://vite.work/tags/syntax-highlighting/</guid>
+      <guid>https://danny1144.github.io/tags/syntax-highlighting/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tag-5</title>
-      <link>https://vite.work/tags/tag-5/</link>
+      <link>https://danny1144.github.io/tags/tag-5/</link>
       <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
       
-      <guid>https://vite.work/tags/tag-5/</guid>
+      <guid>https://danny1144.github.io/tags/tag-5/</guid>
       <description></description>
     </item>
     
